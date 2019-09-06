@@ -18,8 +18,8 @@ const App = () => (
   <Fragment>
     <StatusBar barStyle="dark-content" />
     <View>
-          <Text>
-      My App
+            <Text>
+       My App
       </Text>
       </View>
   </Fragment>
