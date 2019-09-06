@@ -17,6 +17,7 @@
   "dependencies": {
     "@expo/vector-icons": "^6.2.0",
     "color": "^3.0.0",
+    "components": "^0.1.0",
     "cross-env": "^5.2.1",
     "hoist-non-react-statics": "^3.3.0",
     "moment": "^2.18.1",
@@ -28,6 +29,7 @@
     "react-native-dropdownalert": "^4.2.0",
     "react-native-extended-stylesheet": "^0.8.0",
     "react-native-gesture-handler": "^1.4.1",
+    "react-native-splash-screen": "^3.2.0",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^4.0.0",
     "react-navigation-stack": "^1.5.1",
@@ -35,7 +37,8 @@
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^1.0.5"
+    "redux-saga": "^1.0.5",
+    "styled": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
