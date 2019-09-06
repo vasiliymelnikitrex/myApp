@@ -11,8 +11,12 @@
   "pre-commit": [
     "lint"
   ],
+  "pre-push": [
+    "lint"
+  ],
   "dependencies": {
     "cross-env": "^5.2.1",
+    "pre-push": "^0.1.1",
     "pretty-quick": "^1.11.1",
     "react": "16.8.6",
     "react-native": "0.60.5"
