@@ -1,7 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { StatusBar } from 'react-native';
-
 import { configureStore } from './store';
 import AppNavigator from './routes/AppNavigator';
 
