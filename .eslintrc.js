@@ -18,6 +18,7 @@ module.exports = {
     'react/state-in-constructor': 0,
     'react/static-property-placement': 0,
     'react/jsx-props-no-spreading': 0,
+    'react/forbid-prop-types': 0,
     'linebreak-style': ['off'],
     'implicit-arrow-linebreak': 0,
     'no-undef': ['error'],
