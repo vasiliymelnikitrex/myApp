@@ -1,46 +1,98 @@
+import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation';
-import { StatusBar, Platform } from 'react-native';
-import Home from '../screens/Home';
-import List from '../screens/List';
-import Options from '../screens/Options';
-import Feedback from '../screens/Feedback';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-const stackNavigator = createStackNavigator(
-  {
-    Home: {
-      screen: Home,
-      navigationOptions: {
-        header: () => null,
-      },
-    },
-    List: {
-      screen: List,
-      navigationOptions: {
-        title: 'List',
-      },
-    },
-    Options: {
-      screen: Options,
-      navigationOptions: {
-        title: 'Options',
-      },
-    },
-    Feedback: {
-      screen: Feedback,
-      navigationOptions: {
-        title: 'Feedback',
-      },
+import { TABS, TABBAR_ICONS } from '../constants';
+import Home from '../screens/Home';
+import FishInfo from '../screens/FishInfo';
+import News from '../screens/News';
+import Settings from '../screens/Settings';
+
+const HomeTab = createStackNavigator({
+  Home: {
+    screen: Home,
+    navigationOptions: {
+      title: 'Home',
+      header: null,
+      headerBackTitle: null,
     },
   },
-  {
-    headerLayoutPreset: 'center',
-    mode: 'modal',
-    cardStyle: {
-      ...(Platform.OS === 'ios' && { paddingTop: StatusBar.currentHeight }),
+});
+
+const FishInfoTab = createStackNavigator({
+  FishInfo: {
+    screen: FishInfo,
+    navigationOptions: {
+      title: 'FishInfo',
+      header: null,
+      headerBackTitle: null,
     },
-    headerMode: 'screen',
+  },
+});
+
+const NewsTab = createStackNavigator({
+  News: {
+    screen: News,
+    navigationOptions: {
+      title: 'News',
+      header: null,
+      headerBackTitle: null,
+    },
+  },
+});
+
+const SettingsTab = createStackNavigator({
+  Settings: {
+    screen: Settings,
+    navigationOptions: {
+      title: 'Settings',
+      header: null,
+      headerBackTitle: null,
+    },
+  },
+});
+
+const navigationOptions = ({
+  navigation: {
+    state: { routeName },
+  },
+}) => ({
+  tabBarIcon: ({ focused, tintColor }) => (
+    <Icon
+      name={TABBAR_ICONS[routeName]}
+      size={22.5} // TODO: theme
+      color={focused ? '#fff' : tintColor} // TODO: theme
+    />
+  ),
+});
+
+const Navigator = createBottomTabNavigator(
+  {
+    [TABS.Home]: { screen: HomeTab, navigationOptions },
+    [TABS.FishInfo]: { screen: FishInfoTab, navigationOptions },
+    [TABS.News]: { screen: NewsTab, navigationOptions },
+    [TABS.Settings]: { screen: SettingsTab, navigationOptions },
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: '#fff',
+      inactiveTintColor: 'black', // TODO: theme
+      showIcon: true,
+      showLabel: true,
+      style: {
+        backgroundColor: 'limegreen', // TODO: theme
+        paddingTop: 7.5, // TODO: theme
+        paddingBottom: 5, // TODO: theme
+        height: 60, // TODO: theme
+      },
+      tabStyle: {},
+      labelStyle: {
+        fontSize: 14,
+      },
+    },
   },
 );
 
-export default createAppContainer(stackNavigator);
+export default createAppContainer(Navigator);
