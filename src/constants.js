@@ -13,3 +13,13 @@ export const TABBAR_ICONS = {
   [TABS.FishInfo]: 'fish',
   [TABS.Settings]: 'cog',
 };
+
+
+export const API_BASE_URL = 'https://www.fishwatch.gov';
+export const FISH_LIST_BASE_URL = 'https://api.myjson.com/bins/1cgxk1';
+
+// https://www.fishwatch.gov/api/species - varieties
+// https://www.fishwatch.gov/developers
+
+// https://www.fishwatch.gov/sites/default/files - images
+// https://api.myjson.com/bins/1cgxk1 - short list
