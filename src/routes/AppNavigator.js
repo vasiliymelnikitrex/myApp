@@ -3,7 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import IconFish from 'react-native-vector-icons/MaterialCommunityIcons';
 import { TABS, TABBAR_ICONS } from '../constants';
 import Home from '../screens/Home';
 import FishInfo from '../screens/FishInfo';
@@ -72,13 +72,15 @@ const navigationOptions = ({
     state: { routeName },
   },
 }) => ({
-  tabBarIcon: ({ focused, tintColor }) => (
-    <Icon
-      name={TABBAR_ICONS[routeName]}
-      size={22.5} // TODO: theme
-      color={focused ? 'black' : tintColor} // TODO: theme
-    />
-  ),
+  tabBarIcon: ({ focused, tintColor }) => {
+    const commonProps = {
+      name: TABBAR_ICONS[routeName],
+      size: TABBAR_ICONS[routeName] === 'fish' ? 32.5 : 22.5,
+      color: focused ? 'black' : tintColor, // TODO: theme
+    };
+    const Res = routeName === 'FishInfo' ? IconFish : Icon;
+    return <Res {...commonProps} />;
+  },
 });
 
 const Navigator = createBottomTabNavigator(
