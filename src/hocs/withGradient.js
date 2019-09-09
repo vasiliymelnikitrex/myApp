@@ -1,7 +1,7 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 
-export default CustomComponent => () => (
+export default CustomComponent => props => (
   <LinearGradient
     colors={['#574574', '#454574']}
     start={{ x: 1, y: 0 }}
@@ -11,6 +11,6 @@ export default CustomComponent => () => (
       paddingHorizontal: 15,
     }}
   >
-    <CustomComponent />
+    <CustomComponent {...props} />
   </LinearGradient>
 );
