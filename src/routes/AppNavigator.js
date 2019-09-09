@@ -9,6 +9,7 @@ import Home from '../screens/Home';
 import FishInfo from '../screens/FishInfo';
 import News from '../screens/News';
 import Settings from '../screens/Settings';
+import Calendar from '../screens/Calendar';
 
 const HomeTab = createStackNavigator({
   Home: {
@@ -43,6 +44,17 @@ const NewsTab = createStackNavigator({
   },
 });
 
+const CalendarTab = createStackNavigator({
+  Calendar: {
+    screen: Calendar,
+    navigationOptions: {
+      title: 'Calendar',
+      header: null,
+      headerBackTitle: null,
+    },
+  },
+});
+
 const SettingsTab = createStackNavigator({
   Settings: {
     screen: Settings,
@@ -71,8 +83,9 @@ const navigationOptions = ({
 const Navigator = createBottomTabNavigator(
   {
     [TABS.Home]: { screen: HomeTab, navigationOptions },
-    [TABS.FishInfo]: { screen: FishInfoTab, navigationOptions },
+    [TABS.Calendar]: { screen: CalendarTab, navigationOptions },
     [TABS.News]: { screen: NewsTab, navigationOptions },
+    [TABS.FishInfo]: { screen: FishInfoTab, navigationOptions },
     [TABS.Settings]: { screen: SettingsTab, navigationOptions },
   },
   {
