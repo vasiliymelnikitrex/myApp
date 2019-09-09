@@ -10,6 +10,6 @@ export const TABBAR_ICONS = {
   [TABS.Home]: 'home',
   [TABS.Calendar]: 'calendar',
   [TABS.News]: 'list',
-  [TABS.FishInfo]: 'info',
+  [TABS.FishInfo]: 'fish',
   [TABS.Settings]: 'cog',
 };
