@@ -8,7 +8,7 @@ const store = configureStore();
 
 export default () => (
   <Provider store={store}>
-    <StatusBar backgroundColor="#ffefd5" barStyle="dark-content" />
+    <StatusBar backgroundColor="#574574" barStyle="light-content" />
     <AppNavigator />
   </Provider>
 );
