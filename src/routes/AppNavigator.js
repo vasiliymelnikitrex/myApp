@@ -10,7 +10,7 @@ import FishInfo from '../screens/FishInfo';
 import News from '../screens/News';
 import Settings from '../screens/Settings';
 import Calendar from '../screens/Calendar';
-import withGradient from '../hocs/withGradient';
+import { withGradient, withFishList } from '../hocs';
 
 const HomeTab = createStackNavigator({
   [TABS.Home]: {
@@ -25,7 +25,7 @@ const HomeTab = createStackNavigator({
 
 const FishInfoTab = createStackNavigator({
   [TABS.FishInfo]: {
-    screen: withGradient(FishInfo),
+    screen: withFishList(withGradient(FishInfo)),
     navigationOptions: {
       title: TABS.FishInfo,
       header: null,
