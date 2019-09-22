@@ -2,7 +2,8 @@ import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import reducer from './rootReduser';
+import reducer from './rootReducer';
+import fishListSaga from '../redux/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -12,10 +13,9 @@ export default (initialState = {}) => {
     initialState,
     composeWithDevTools(applyMiddleware(sagaMiddleware)),
   );
-
   sagaMiddleware.run(function* rootSaga() {
-    yield all([]);
+    yield all([...fishListSaga]);
   });
 
   return store;
-}
+};

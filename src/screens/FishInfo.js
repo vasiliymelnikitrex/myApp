@@ -4,9 +4,15 @@ import { View, Text } from 'react-native';
 
 const FishInfo = ({ fishes }) => (
   <View style={{ flex: 1 }}>
-    <Text style={{ color: '#fff', fontSize: 36, fontWeight: 'bold' }}>
-      FishInfo - {fishes.length}
-    </Text>
+    {!Boolean(fishes.length) ? (
+      <Text>Waiting...</Text>
+    ) : (
+      fishes.map(item => (
+        <View>
+          <Text>{item.species_name}</Text>
+        </View>
+      ))
+    )}
   </View>
 );
 

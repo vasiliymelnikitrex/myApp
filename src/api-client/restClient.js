@@ -49,7 +49,7 @@ export default class RestClient {
       if (status >= 200 && status < 300) {
         return response
           .json()
-          .then(({ data: res, result }) => res || result)
+          .then(data => data)
           .catch(error => {
             throw error;
           });
@@ -65,6 +65,7 @@ export default class RestClient {
 
   get(endpoint = '', params) {
     const query = params ? `?${params}` : '';
+
     return this.request(
       `${this.baseUrl}${endpoint}${query}`,
       this.getConfig('get', null),

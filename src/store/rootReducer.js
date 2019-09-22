@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import tempReducer from '../redux/reducers/tempReducer';
+import fishes from '../redux/reducers/fishes';
 
 export default combineReducers({
-  tempReducer,
+  fishes,
 });

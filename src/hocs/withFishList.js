@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFishList } from '../redux/actions';
+import { getFishListSelector } from '../redux/selectors';
 
 export default CustomComponent => props => {
-  const fishes = ['fishes'];
+  const fishes = useSelector(getFishListSelector);
+  const dispatch = useDispatch();
 
-  return <CustomComponent fishes={fishes} {...props} />;
+
+  useEffect(() => {
+    dispatch(getFishList('REQUEST'));
+  }, []);
+
+  return fishes && <CustomComponent fishes={fishes} {...props} />;
 };
