@@ -10,13 +10,27 @@ const FishInfo = ({ fishes }) =>
       <Text>Waiting...</Text>
     </View>
   ) : (
-    <FlatList
-      keyExtractor={item => item.src}
-      data={fishes}
-      renderItem={({ item }) => (
-        <FishItem name={item.species_name} src={item.src} />
-      )}
-    />
+    <View>
+      <Text
+        style={{
+          paddingHorizontal: 12,
+          paddingVertical: 20,
+          color: '#fff',
+          fontSize: 20,
+        }}
+      >
+        Search...
+      </Text>
+      <FlatList
+        keyExtractor={item => item.src}
+        data={fishes.sort((a, b) =>
+          a.species_name[0] > b.species_name[0] ? 1 : -1,
+        )}
+        renderItem={({ item }) => (
+          <FishItem name={item.species_name} src={item.src} />
+        )}
+      />
+    </View>
   ));
 
 FishInfo.propTypes = {

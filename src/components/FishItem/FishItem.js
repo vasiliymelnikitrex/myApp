@@ -31,22 +31,32 @@ const FishItem = ({ name, src }) => (
       >
         {name}
       </Text>
-      <Text
+      <View
         style={{
-          justifyContent: 'flex-end',
-          color: '#fff',
-          fontSize: 14,
+          flexDirection: 'row',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
         }}
       >
-        more info{' '}
+        <Text
+          style={{
+            paddingTop: 4,
+            paddingRight: 6,
+            color: '#fff',
+            fontSize: 14,
+          }}
+        >
+          more info
+        </Text>
         <Text
           style={{
             fontSize: 24,
+            color: '#fff',
           }}
         >
-          &rarr;
+          &rsaquo;
         </Text>
-      </Text>
+      </View>
     </View>
     <Image
       style={{ height: 50, flex: 1, justifyContent: 'flex-end' }}
