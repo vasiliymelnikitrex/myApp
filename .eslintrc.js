@@ -34,6 +34,7 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     camelcase: 0,
     'no-nested-ternary': 0,
+    'import/no-dynamic-require': 0,
     'react/jsx-wrap-multilines': 0,
     'object-curly-newline': 0,
     'operator-linebreak': 0,

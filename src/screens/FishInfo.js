@@ -16,7 +16,11 @@ const FishInfo = ({ fishes, navigation }) => {
       return 0;
     });
 
-  const handlePress = data => () => navigation.navigate('Details', { data });
+  const handlePress = data => () =>
+    navigation.navigate('Details', {
+      data,
+      RenderComponent: 'FishDescription',
+    });
 
   return !Boolean(fishes.length) ? (
     <View>
