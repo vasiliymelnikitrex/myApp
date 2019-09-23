@@ -16,7 +16,7 @@ export const TABBAR_ICONS = {
 
 
 export const API_BASE_URL = 'https://www.fishwatch.gov';
-export const FISH_LIST_BASE_URL = 'https://api.myjson.com/bins/1cgxk1';
+export const FISH_LIST_BASE_URL = 'https://api.myjson.com/bins/1dxhj5';
 export const FISH_IMG_BASE_URL = `${API_BASE_URL}/sites/default/files`;
 
 // https://www.fishwatch.gov/api/species - varieties
