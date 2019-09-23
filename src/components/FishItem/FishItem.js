@@ -4,7 +4,7 @@ import { TouchableOpacity, View, Text, Image } from 'react-native';
 
 import { FISH_IMG_BASE_URL } from '../../constants';
 
-const FishItem = ({ name, src }) => (
+const FishItem = ({ name, src, onPress }) => (
   <TouchableOpacity
     style={{
       flexDirection: 'row',
@@ -18,6 +18,7 @@ const FishItem = ({ name, src }) => (
       borderColor: 'transparent',
       borderWidth: 1,
     }}
+    onPress={onPress}
   >
     <View style={{ flex: 2 }}>
       <Text
@@ -70,6 +71,11 @@ const FishItem = ({ name, src }) => (
 FishItem.propTypes = {
   src: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  onPress: PropTypes.func,
+};
+
+FishItem.defaultProps = {
+  onPress: PropTypes.null,
 };
 
 export default FishItem;

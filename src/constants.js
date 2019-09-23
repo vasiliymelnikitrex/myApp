@@ -4,6 +4,7 @@ export const TABS = {
   News: 'News',
   FishInfo: 'FishInfo',
   Settings: 'Settings',
+  Details: 'Details',
 };
 
 export const TABBAR_ICONS = {
