@@ -19,7 +19,7 @@ const FishInfo = ({ fishes, navigation }) => {
   const handlePress = data => () =>
     navigation.navigate('Details', {
       data,
-      RenderComponent: 'FishDescription',
+      renderComponent: 'FishDescription',
     });
 
   return !Boolean(fishes.length) ? (

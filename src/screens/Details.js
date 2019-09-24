@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import FishDescription from '../components/FishDescription';
-
 const Details = ({ navigation }) => {
   const goBack = () => navigation.goBack();
-  const { RenderComponent, data } = navigation.state.params;
+  const { renderComponent, data } = navigation.state.params;
+
+  const getRenderComponent = () => {
+    switch (renderComponent) {
+      case 'FishDescription': return lazy(() => import('../components/FishDescription'));
+      default: null;
+    }
+  };
+
+  const RenderComponent = getRenderComponent();
 
   return (
     <View style={{ flex: 1 }}>
@@ -25,11 +32,9 @@ const Details = ({ navigation }) => {
           Details
         </Text>
       </TouchableOpacity>
-      {
-        {
-          FishDescription: <FishDescription {...data} />,
-        }[RenderComponent]
-      }
+      <Suspense fallback={null}>
+        <RenderComponent {...data} />
+      </Suspense>
     </View>
   );
 };
