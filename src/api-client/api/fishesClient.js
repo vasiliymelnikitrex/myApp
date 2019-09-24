@@ -3,7 +3,9 @@ class Fishes {
     this.client = client;
   }
 
-  getFishesList = () => this.client.get();
+  getFishData = () => this.client.get();
+
+  getFishDescription = path => this.client.get(path);
 }
 
 export default Fishes;

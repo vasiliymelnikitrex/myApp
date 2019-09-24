@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity } from 'react-native';
-// import FishDescription from '../components/FishDescription'
+
+import FishDescription from '../components/FishDescription';
 
 const Details = ({ navigation }) => {
   const goBack = () => navigation.goBack();
-  // const { RenderComponent } = navigation.state.params;
+  const { RenderComponent, data } = navigation.state.params;
 
   return (
     <View style={{ flex: 1 }}>
@@ -24,7 +25,11 @@ const Details = ({ navigation }) => {
           Details
         </Text>
       </TouchableOpacity>
-      {/* <RenderComponent data={navigation.state.params.data} /> */}
+      {
+        {
+          FishDescription: <FishDescription {...data} />,
+        }[RenderComponent]
+      }
     </View>
   );
 };

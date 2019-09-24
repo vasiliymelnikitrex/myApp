@@ -3,3 +3,9 @@ export const getFishListAction = () => ({
   SUCCESS: 'GET_FISH_LIST_SUCCES',
   ERROR: 'GET_FISH_LIST_ERROR',
 });
+
+export const getFishInfoAction = () => ({
+  REQUEST: 'GET_FISH_INFO_REQUEST',
+  SUCCESS: 'GET_FISH_INFO_SUCCES',
+  ERROR: 'GET_FISH_INFO_ERROR',
+});

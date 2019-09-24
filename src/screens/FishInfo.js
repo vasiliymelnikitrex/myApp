@@ -39,7 +39,7 @@ const FishInfo = ({ fishes, navigation }) => {
         Search...
       </Text>
       <FlatList
-        keyExtractor={item => item.src}
+        keyExtractor={item => item.name + item.src}
         data={sortData(fishes)}
         renderItem={({ item }) => (
           <FishItem
