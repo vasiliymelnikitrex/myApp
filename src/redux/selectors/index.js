@@ -1,3 +1,3 @@
 export const getFishListSelector = state => state.fishes;
 
-export const getFishInfoSelector = state => state.fishInfo;
+export const getFishInfoSelector = state => state.fishInfo[0];

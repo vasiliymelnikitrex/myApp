@@ -25,9 +25,9 @@ const FishItem = ({ name, src, onPress }) => (
         style={{
           justifyContent: 'flex-end',
           color: '#fff',
-          fontSize: 20,
+          fontSize: 22,
           fontWeight: 'bold',
-          paddingRight: 50,
+          paddingRight: 25,
         }}
       >
         {name}

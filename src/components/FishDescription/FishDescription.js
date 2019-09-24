@@ -1,32 +1,44 @@
 import React, { useEffect } from 'react';
-import { useDispatch, /*useSelector*/ } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 
-// import { getFishInfoSelector } from '../../redux/selectors';
+import { getFishInfoSelector } from '../../redux/selectors';
 import { getFishInfo } from '../../redux/actions';
+import { removeTags } from '../../helpers';
 
 const FishDescription = ({ path }) => {
   const dispatch = useDispatch();
-  // const fishInfo = useSelector(getFishInfoSelector) TODO:
+  const fishInfo = useSelector(getFishInfoSelector);
 
   useEffect(() => {
     dispatch(getFishInfo('REQUEST', path));
   }, []);
 
-  return (
-    <View style={{ flex: 1 }}>
+  return fishInfo ? (
+    <ScrollView style={{ flex: 1 }}>
       <Text
         style={{
           justifyContent: 'flex-end',
           color: '#fff',
-          fontSize: 50,
           fontWeight: 'bold',
-          paddingRight: 50,
         }}
       >
-        123
+        {fishInfo && removeTags(fishInfo.Availability)}
       </Text>
+      <Text
+        style={{
+          justifyContent: 'flex-end',
+          color: '#fff',
+          fontWeight: 'bold',
+        }}
+      >
+        {removeTags(fishInfo.Biology)}
+      </Text>
+    </ScrollView>
+  ) : (
+    <View>
+      <Text>Loading...</Text>
     </View>
   );
 };
