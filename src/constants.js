@@ -5,6 +5,8 @@ export const TABS = {
   FishInfo: 'FishInfo',
   Settings: 'Settings',
   Details: 'Details',
+  MapInfo: 'MapInfo',
+  FoodInfo: 'FoodInfo',
 };
 
 export const TABBAR_ICONS = {
