@@ -5,6 +5,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 const Details = ({ navigation }) => {
   const goBack = () => navigation.goBack();
   const { renderComponent, data } = navigation.state.params;
+  const { navigate } = navigation;
 
   const getRenderComponent = () => {
     switch (renderComponent) {
@@ -33,7 +34,7 @@ const Details = ({ navigation }) => {
         </Text>
       </TouchableOpacity>
       <Suspense fallback={null}>
-        <RenderComponent {...data} />
+        <RenderComponent {...data} navigate={navigate} />
       </Suspense>
     </View>
   );

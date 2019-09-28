@@ -11,6 +11,8 @@ import News from '../screens/News';
 import Settings from '../screens/Settings';
 import Calendar from '../screens/Calendar';
 import Details from '../screens/Details';
+import MapInfo from '../screens/MapInfo';
+import FoodInfo from '../screens/FoodInfo';
 import { withGradient, withFishList } from '../hocs';
 
 const HomeTab = createStackNavigator({
@@ -37,6 +39,22 @@ const FishInfoTab = createStackNavigator({
     screen: withGradient(Details),
     navigationOptions: {
       title: TABS.Details,
+      header: null,
+      headerBackTitle: null,
+    },
+  },
+  [TABS.MapInfo]: {
+    screen: withGradient(MapInfo),
+    navigationOptions: {
+      title: TABS.MapInfo,
+      header: null,
+      headerBackTitle: null,
+    },
+  },
+  [TABS.FoodInfo]: {
+    screen: withGradient(FoodInfo),
+    navigationOptions: {
+      title: TABS.FoodInfo,
       header: null,
       headerBackTitle: null,
     },
