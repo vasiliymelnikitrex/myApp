@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 export default ({ navigation }) => {
   const goBack = () => navigation.goBack();
+
   return (
     <View style={{ flex: 1 }}>
       <TouchableOpacity style={{ flexDirection: 'row' }} onPress={goBack}>
@@ -17,7 +18,7 @@ export default ({ navigation }) => {
           &larr;
         </Text>
         <Text style={{ color: '#fff', fontSize: 36, fontWeight: 'bold' }}>
-          FishInfo
+          FoodInfo
         </Text>
       </TouchableOpacity>
     </View>
