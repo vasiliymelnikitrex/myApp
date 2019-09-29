@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { ScrollView, View, Text, TouchableOpacity } from 'react-native';
+import {
+  ScrollView,
+  View,
+  Text,
+  TouchableOpacity,
+  ImageBackground,
+} from 'react-native';
 
 import { getFishInfoSelector } from '../../redux/selectors';
 import { getFishInfo } from '../../redux/actions';
 import { removeTags } from '../../helpers';
+import map from '../../assets/map_preview.png';
 
 const FishDescription = ({ path, navigate }) => {
   const dispatch = useDispatch();
@@ -19,6 +26,15 @@ const FishDescription = ({ path, navigate }) => {
 
   return fishInfo ? (
     <ScrollView style={{ flex: 1 }}>
+      <View style={{ width: '100%', height: 300 }}>
+        <ImageBackground
+          source={map}
+          resizeMode="stretch"
+          style={{ width: '100%', height: '100%', position: 'relative' }}
+        >
+          <Text style={{ position: 'absolute', left: 30, top: 30 }}>v</Text>
+        </ImageBackground>
+      </View>
       <Text
         style={{
           justifyContent: 'flex-end',
