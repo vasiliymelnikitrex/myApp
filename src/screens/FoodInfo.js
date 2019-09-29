@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, ScrollView, Text, TouchableOpacity } from 'react-native';
 
 export default ({ navigation }) => {
   const goBack = () => navigation.goBack();
-
+  const { params: foodProps } = navigation.state;
   return (
     <View style={{ flex: 1 }}>
       <TouchableOpacity style={{ flexDirection: 'row' }} onPress={goBack}>
@@ -21,6 +21,16 @@ export default ({ navigation }) => {
           FoodInfo
         </Text>
       </TouchableOpacity>
+      <ScrollView>
+        {Object.keys(foodProps).map(
+          foodParameter =>
+            foodProps[foodParameter] && (
+              <Text key={foodParameter} style={{ color: '#fff', fontSize: 20 }}>
+                {foodParameter}: {foodProps[foodParameter]}
+              </Text>
+            ),
+        )}
+      </ScrollView>
     </View>
   );
 };
