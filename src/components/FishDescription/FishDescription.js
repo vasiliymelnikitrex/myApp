@@ -36,13 +36,13 @@ const FishDescription = ({ path, navigate }) => {
           removeTags(fishInfo['Physical Description']),
         ),
         production: fishInfo.Production,
-        rotein: fishInfo.Protein,
+        protein: fishInfo.Protein,
         saturatedFattyAcids: fishInfo['Saturated Fatty Acids, Total'],
         selenium: fishInfo.Selenium,
         servingWeight: fishInfo['Serving Weight'],
         sodium: fishInfo.Sodium,
         sugars: fishInfo['Sugars, Total'],
-        taste: fishInfo.Taste,
+        taste: removeBreaks(removeTags(fishInfo.Taste)),
       },
     };
     navigate(screen, stateProps[TABS[screen]]);
@@ -96,9 +96,7 @@ const FishDescription = ({ path, navigate }) => {
       >
         {removeBreaks(removeTags(fishInfo.Biology))}
       </Text>
-      <TouchableOpacity
-        onPress={onPress(TABS.FoodInfo)}
-      >
+      <TouchableOpacity onPress={onPress(TABS.FoodInfo)}>
         <Text>Food</Text>
       </TouchableOpacity>
     </ScrollView>
