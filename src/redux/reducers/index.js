@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import fishes from '../redux/reducers/fishes';
-import fishInfo from '../redux/reducers/fishInfo';
+import fishes from './fishes';
+import fishInfo from './fishInfo';
 
 export default combineReducers({
   fishes,

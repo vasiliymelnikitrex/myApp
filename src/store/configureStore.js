@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import reducer from './rootReducer';
+import reducer from '../redux/reducers';
 import fishListSaga from '../redux/sagas';
 
 const sagaMiddleware = createSagaMiddleware();

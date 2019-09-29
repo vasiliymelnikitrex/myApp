@@ -3,24 +3,16 @@ import PropTypes from 'prop-types';
 import { View, Text, FlatList } from 'react-native';
 
 import FishItem from '../components/FishItem';
+import { sortData } from '../helpers';
 
 const FishInfo = ({ fishes, navigation }) => {
-  const sortData = data =>
-    data.sort((a, b) => {
-      if (a.species_name[0] > b.species_name[0]) {
-        return 1;
-      }
-      if (a.species_name[0] < b.species_name[0]) {
-        return -1;
-      }
-      return 0;
-    });
-
   const handlePress = data => () =>
     navigation.navigate('Details', {
       data,
       renderComponent: 'FishDescription',
     });
+
+  const getKey = ({ name, src }) => name + src;
 
   return !Boolean(fishes.length) ? (
     <View>
@@ -39,7 +31,7 @@ const FishInfo = ({ fishes, navigation }) => {
         Search...
       </Text>
       <FlatList
-        keyExtractor={item => item.name + item.src}
+        keyExtractor={getKey}
         data={sortData(fishes)}
         renderItem={({ item }) => (
           <FishItem
