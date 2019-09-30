@@ -18,13 +18,14 @@ const Details = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <TouchableOpacity style={{ flexDirection: 'row' }} onPress={goBack}>
+      <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }} onPress={goBack}>
         <Text
           style={{
             color: '#fff',
             fontSize: 36,
             fontWeight: 'bold',
-            paddingRight: 10,
+            paddingRight: 7,
+            paddingBottom: 10.5,
           }}
         >
           &larr;
