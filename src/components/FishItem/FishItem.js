@@ -24,7 +24,7 @@ const FishItem = ({ name, src, onPress }) => (
       <Text
         style={{
           justifyContent: 'flex-end',
-          color: '#fff',
+          color: '#fdecff',
           fontSize: 22,
           fontWeight: 'bold',
           paddingRight: 25,
@@ -43,7 +43,7 @@ const FishItem = ({ name, src, onPress }) => (
           style={{
             paddingTop: 4,
             paddingRight: 6,
-            color: '#fff',
+            color: '#fdecff',
             fontSize: 14,
           }}
         >
@@ -52,7 +52,7 @@ const FishItem = ({ name, src, onPress }) => (
         <Text
           style={{
             fontSize: 24,
-            color: '#fff',
+            color: '#fdecff',
           }}
         >
           &rsaquo;

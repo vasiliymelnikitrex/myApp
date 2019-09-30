@@ -1,25 +1,13 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
+import ArrowBack from '../components/ArrowBack';
 
 export default ({ navigation }) => {
+  const { routeName } = navigation.state;
   const goBack = () => navigation.goBack();
   return (
     <View style={{ flex: 1 }}>
-      <TouchableOpacity style={{ flexDirection: 'row' }} onPress={goBack}>
-        <Text
-          style={{
-            color: '#fff',
-            fontSize: 36,
-            fontWeight: 'bold',
-            paddingRight: 10,
-          }}
-        >
-          &larr;
-        </Text>
-        <Text style={{ color: '#fff', fontSize: 36, fontWeight: 'bold' }}>
-          MapInfo
-        </Text>
-      </TouchableOpacity>
+      <ArrowBack title={routeName} goBack={goBack} />
     </View>
   );
 };

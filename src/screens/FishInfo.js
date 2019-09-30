@@ -24,7 +24,7 @@ const FishInfo = ({ fishes, navigation }) => {
         style={{
           paddingHorizontal: 12,
           paddingVertical: 20,
-          color: '#fff',
+          color: '#fdecff',
           fontSize: 20,
         }}
       >

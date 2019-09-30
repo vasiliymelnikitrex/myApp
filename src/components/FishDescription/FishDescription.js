@@ -68,7 +68,7 @@ const FishDescription = ({ path, navigate }) => {
             }}
             name={TABBAR_ICONS[TABS.FishInfo]}
             size={20}
-            color="black" // TODO: theme
+            color="#230338" // TODO: theme
           />
           <TouchableOpacity
             onPress={onPress(TABS.MapInfo)}
@@ -81,7 +81,7 @@ const FishDescription = ({ path, navigate }) => {
       <Text
         style={{
           justifyContent: 'flex-end',
-          color: '#fff',
+          color: '#fdecff',
           fontWeight: 'bold',
         }}
       >
@@ -90,7 +90,7 @@ const FishDescription = ({ path, navigate }) => {
       <Text
         style={{
           justifyContent: 'flex-end',
-          color: '#fff',
+          color: '#fdecff',
           fontWeight: 'bold',
         }}
       >

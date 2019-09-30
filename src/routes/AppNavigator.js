@@ -21,7 +21,7 @@ const navigationOptions = ({
     const commonProps = {
       name: TABBAR_ICONS[routeName],
       size: TABBAR_ICONS[routeName] === 'fish' ? 32.5 : 22.5,
-      color: focused ? 'black' : tintColor, // TODO: theme
+      color: focused ? '#230338' : tintColor, // TODO: theme
     };
     const Res = routeName === 'FishInfo' ? IconFish : Icon;
     return <Res {...commonProps} />;
@@ -38,8 +38,8 @@ const Navigator = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      activeTintColor: 'black', // TODO: theme
-      inactiveTintColor: '#fff', // TODO: theme
+      activeTintColor: '#230338', // TODO: theme
+      inactiveTintColor: '#fdecff', // TODO: theme
       showIcon: true,
       showLabel: true,
       style: {
