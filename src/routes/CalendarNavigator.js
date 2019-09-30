@@ -1,6 +1,6 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { TABS } from '../constants';
-import Calendar from '../screens/Calendar';
+import { Calendar } from '../screens';
 import { withGradient } from '../hocs';
 
 const CalendarNavigator = createStackNavigator({

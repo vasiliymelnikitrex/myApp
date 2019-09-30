@@ -11,6 +11,8 @@ import {
   SettingsNavigator,
   CalendarNavigator,
 } from '.';
+import { TABBAR_TOP_PADDING, TABBAR_BOTTOM_PADDING } from '../styles/paddings';
+import { SUB_TEXT_FONT_SIZE } from '../styles/fontSizes';
 
 const navigationOptions = ({
   navigation: {
@@ -44,14 +46,14 @@ const Navigator = createBottomTabNavigator(
       showLabel: true,
       style: {
         backgroundColor: '#6058A5', // TODO: theme
-        paddingTop: 7.5, // TODO: theme
-        paddingBottom: 5, // TODO: theme
+        paddingTop: TABBAR_TOP_PADDING,
+        paddingBottom: TABBAR_BOTTOM_PADDING,
         height: 60, // TODO: theme
         borderTopWidth: 0,
       },
       tabStyle: { border: 'none' },
       labelStyle: {
-        fontSize: 14,
+        fontSize: SUB_TEXT_FONT_SIZE,
       },
     },
   },
