@@ -14,6 +14,7 @@ import {
 import { TABBAR_TOP_PADDING, TABBAR_BOTTOM_PADDING } from '../styles/paddings';
 import { SUB_TEXT_FONT_SIZE } from '../styles/fontSizes';
 import { PRIMARY_COLOR, TABBAR_BG_COLOR, ACTIVE_TINT_COLOR } from '../styles/colors';
+import { withAppState } from '../hocs';
 
 const navigationOptions = ({
   navigation: {
@@ -31,7 +32,7 @@ const navigationOptions = ({
   },
 });
 
-const Navigator = createBottomTabNavigator(
+const BottomNavigation = createBottomTabNavigator(
   {
     [TABS.Home]: { screen: HomeNavigator, navigationOptions },
     [TABS.Calendar]: { screen: CalendarNavigator, navigationOptions },
@@ -60,4 +61,6 @@ const Navigator = createBottomTabNavigator(
   },
 );
 
-export default createAppContainer(Navigator);
+const Navigator = createAppContainer(BottomNavigation);
+
+export default withAppState(Navigator);

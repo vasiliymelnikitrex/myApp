@@ -1,11 +1,10 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { TABS } from '../constants';
 import { Calendar } from '../screens';
-import { withGradient } from '../hocs';
 
 const CalendarNavigator = createStackNavigator({
   [TABS.News]: {
-    screen: withGradient(Calendar),
+    screen: Calendar,
     navigationOptions: {
       title: TABS.News,
       header: null,

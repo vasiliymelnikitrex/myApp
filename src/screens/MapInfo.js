@@ -1,13 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
+
+import { Container } from '../components/Container';
 import ArrowBack from '../components/ArrowBack';
 
 export default ({ navigation }) => {
   const { routeName } = navigation.state;
   const goBack = () => navigation.goBack();
   return (
-    <View style={{ flex: 1 }}>
+    <Container>
       <ArrowBack title={routeName} goBack={goBack} />
-    </View>
+    </Container>
   );
 };

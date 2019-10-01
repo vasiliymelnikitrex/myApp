@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, FlatList } from 'react-native';
+import { Text, FlatList } from 'react-native';
 
+import { Container } from '../components/Container';
 import FishItem from '../components/FishItem';
 import { sortData } from '../helpers';
 import { ITEM_VERTICAL_PADDING } from '../styles/paddings';
@@ -17,33 +18,35 @@ const FishInfo = ({ fishes, navigation }) => {
 
   const getKey = ({ name, src }) => name + src;
 
-  return !Boolean(fishes.length) ? (
-    <View>
-      <Text>Waiting...</Text>
-    </View>
-  ) : (
-    <View>
-      <Text
-        style={{
-          paddingVertical: ITEM_VERTICAL_PADDING,
-          color: PRIMARY_COLOR,
-          fontSize: TEXT_FONT_SIZE,
-        }}
-      >
-        Search...
-      </Text>
-      <FlatList
-        keyExtractor={getKey}
-        data={sortData(fishes)}
-        renderItem={({ item }) => (
-          <FishItem
-            name={item.species_name}
-            src={item.src}
-            onPress={handlePress(item)}
+  return (
+    <Container>
+      {!Boolean(fishes.length) ? ( // TODO: Spinner
+        <Text>Waiting...</Text>
+      ) : (
+        <>
+          <Text
+            style={{
+              paddingVertical: ITEM_VERTICAL_PADDING,
+              color: PRIMARY_COLOR,
+              fontSize: TEXT_FONT_SIZE,
+            }}
+          >
+            Search...
+          </Text>
+          <FlatList
+            keyExtractor={getKey}
+            data={sortData(fishes)}
+            renderItem={({ item }) => (
+              <FishItem
+                name={item.species_name}
+                src={item.src}
+                onPress={handlePress(item)}
+              />
+            )}
           />
-        )}
-      />
-    </View>
+        </>
+      )}
+    </Container>
   );
 };
 

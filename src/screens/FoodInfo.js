@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import { ScrollView, Text } from 'react-native';
+
+import { Container } from '../components/Container';
 import ArrowBack from '../components/ArrowBack';
 import { TEXT_FONT_SIZE } from '../styles/fontSizes';
 import { PRIMARY_COLOR } from '../styles/colors';
@@ -8,7 +10,7 @@ export default ({ navigation }) => {
   const goBack = () => navigation.goBack();
   const { params: foodProps, routeName } = navigation.state;
   return (
-    <View style={{ flex: 1 }}>
+    <Container>
       <ArrowBack title={routeName} goBack={goBack} />
       <ScrollView>
         {Object.keys(foodProps).map(
@@ -20,6 +22,6 @@ export default ({ navigation }) => {
             ),
         )}
       </ScrollView>
-    </View>
+    </Container>
   );
 };

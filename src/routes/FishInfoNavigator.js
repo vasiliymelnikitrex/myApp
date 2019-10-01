@@ -1,11 +1,11 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { TABS } from '../constants';
 import { FishInfo, Details, MapInfo, FoodInfo } from '../screens';
-import { withGradient, withFishList } from '../hocs';
+import { withFishList } from '../hocs';
 
 const FishInfoNavigator = createStackNavigator({
   [TABS.FishInfo]: {
-    screen: withFishList(withGradient(FishInfo)),
+    screen: withFishList(FishInfo),
     navigationOptions: {
       title: TABS.FishInfo,
       header: null,
@@ -13,7 +13,7 @@ const FishInfoNavigator = createStackNavigator({
     },
   },
   [TABS.Details]: {
-    screen: withGradient(Details),
+    screen: Details,
     navigationOptions: {
       title: TABS.Details,
       header: null,
@@ -21,7 +21,7 @@ const FishInfoNavigator = createStackNavigator({
     },
   },
   [TABS.MapInfo]: {
-    screen: withGradient(MapInfo),
+    screen: MapInfo,
     navigationOptions: {
       title: TABS.MapInfo,
       header: null,
@@ -29,7 +29,7 @@ const FishInfoNavigator = createStackNavigator({
     },
   },
   [TABS.FoodInfo]: {
-    screen: withGradient(FoodInfo),
+    screen: FoodInfo,
     navigationOptions: {
       title: TABS.FoodInfo,
       header: null,
