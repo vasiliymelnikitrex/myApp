@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Container } from '../components/Container';
-import ArrowBack from '../components/ArrowBack';
+import { Container, ArrowBack } from '../components';
 
 export default ({ navigation }) => {
   const { routeName } = navigation.state;

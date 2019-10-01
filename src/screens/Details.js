@@ -1,8 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import PropTypes from 'prop-types';
 
-import { Container } from '../components/Container';
-import ArrowBack from '../components/ArrowBack';
+import { Container, ArrowBack } from '../components';
 
 const Details = ({ navigation }) => {
   const goBack = () => navigation.goBack();

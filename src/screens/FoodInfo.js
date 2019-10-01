@@ -1,8 +1,7 @@
 import React from 'react';
 import { ScrollView, Text } from 'react-native';
 
-import { Container } from '../components/Container';
-import ArrowBack from '../components/ArrowBack';
+import { Container, ArrowBack } from '../components';
 import { TEXT_FONT_SIZE } from '../styles/fontSizes';
 import { PRIMARY_COLOR } from '../styles/colors';
 
