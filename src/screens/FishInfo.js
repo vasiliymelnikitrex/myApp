@@ -4,6 +4,8 @@ import { View, Text, FlatList } from 'react-native';
 
 import FishItem from '../components/FishItem';
 import { sortData } from '../helpers';
+import { ITEM_VERTICAL_PADDING } from '../styles/paddings';
+import { TEXT_FONT_SIZE } from '../styles/fontSizes';
 
 const FishInfo = ({ fishes, navigation }) => {
   const handlePress = data => () =>
@@ -22,10 +24,9 @@ const FishInfo = ({ fishes, navigation }) => {
     <View>
       <Text
         style={{
-          paddingHorizontal: 12,
-          paddingVertical: 20,
+          paddingVertical: ITEM_VERTICAL_PADDING,
           color: '#fdecff',
-          fontSize: 20,
+          fontSize: TEXT_FONT_SIZE,
         }}
       >
         Search...

@@ -1,5 +1,6 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
+import { MAIN_PADDING } from '../styles/paddings';
 
 export default CustomComponent => props => (
   <LinearGradient
@@ -8,7 +9,7 @@ export default CustomComponent => props => (
     end={{ x: 1, y: 1 }}
     style={{
       flex: 1,
-      paddingHorizontal: 15,
+      paddingHorizontal: MAIN_PADDING,
     }}
   >
     <CustomComponent {...props} />

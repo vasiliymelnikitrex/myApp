@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { TouchableOpacity, View, Text, Image } from 'react-native';
 
 import { FISH_IMG_BASE_URL } from '../../constants';
+import { ITEM_MARGIN } from '../../styles/margins';
+import { ITEM_HORIZONTAL_PADDING, ITEM_VERTICAL_PADDING, SECONDARY_TEXT_PADDING } from '../../styles/paddings';
+import { SUB_HEADER_FONT_SIZE, SUB_TEXT_FONT_SIZE } from '../../styles/fontSizes';
 
 const FishItem = ({ name, src, onPress }) => (
   <TouchableOpacity
@@ -10,9 +13,9 @@ const FishItem = ({ name, src, onPress }) => (
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      margin: 10,
-      paddingHorizontal: 20,
-      paddingVertical: 20,
+      marginBottom: ITEM_MARGIN,
+      paddingHorizontal: ITEM_HORIZONTAL_PADDING,
+      paddingVertical: ITEM_VERTICAL_PADDING,
       backgroundColor: '#6058A5',
       borderRadius: 15,
       borderColor: 'transparent',
@@ -25,9 +28,9 @@ const FishItem = ({ name, src, onPress }) => (
         style={{
           justifyContent: 'flex-end',
           color: '#fdecff',
-          fontSize: 22,
+          fontSize: SUB_HEADER_FONT_SIZE,
           fontWeight: 'bold',
-          paddingRight: 25,
+          paddingRight: ITEM_HORIZONTAL_PADDING,
         }}
       >
         {name}
@@ -41,17 +44,17 @@ const FishItem = ({ name, src, onPress }) => (
       >
         <Text
           style={{
-            paddingTop: 4,
-            paddingRight: 6,
+            paddingTop: SECONDARY_TEXT_PADDING,
+            paddingRight: SECONDARY_TEXT_PADDING,
             color: '#fdecff',
-            fontSize: 14,
+            fontSize: SUB_TEXT_FONT_SIZE,
           }}
         >
           more info
         </Text>
         <Text
           style={{
-            fontSize: 24,
+            fontSize: SUB_HEADER_FONT_SIZE,
             color: '#fdecff',
           }}
         >

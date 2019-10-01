@@ -1,0 +1,1 @@
+export const ITEM_MARGIN = 15;
