@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, FlatList } from 'react-native';
 
-import { Container } from '../components/Container';
-import FishItem from '../components/FishItem';
+import { Container, FishItem } from '../components';
 import { sortData } from '../helpers';
 import { ITEM_VERTICAL_PADDING } from '../styles/paddings';
 import { TEXT_FONT_SIZE } from '../styles/fontSizes';
