@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
 
+import { Container } from '../components/Container';
 import ArrowBack from '../components/ArrowBack';
 
 const Details = ({ navigation }) => {
@@ -21,12 +21,12 @@ const Details = ({ navigation }) => {
   const RenderComponent = getRenderComponent();
 
   return (
-    <View style={{ flex: 1 }}>
+    <Container>
       <ArrowBack title={routeName} goBack={goBack} />
       <Suspense fallback={null}>
         <RenderComponent {...data} navigate={navigate} />
       </Suspense>
-    </View>
+    </Container>
   );
 };
 

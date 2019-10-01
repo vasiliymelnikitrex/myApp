@@ -13,6 +13,8 @@ import {
 } from '.';
 import { TABBAR_TOP_PADDING, TABBAR_BOTTOM_PADDING } from '../styles/paddings';
 import { SUB_TEXT_FONT_SIZE } from '../styles/fontSizes';
+import { PRIMARY_COLOR, TABBAR_BG_COLOR, ACTIVE_TINT_COLOR } from '../styles/colors';
+import { withAppState } from '../hocs';
 
 const navigationOptions = ({
   navigation: {
@@ -23,14 +25,14 @@ const navigationOptions = ({
     const commonProps = {
       name: TABBAR_ICONS[routeName],
       size: TABBAR_ICONS[routeName] === 'fish' ? 32.5 : 22.5,
-      color: focused ? '#230338' : tintColor, // TODO: theme
+      color: focused ? ACTIVE_TINT_COLOR : tintColor,
     };
     const Res = routeName === 'FishInfo' ? IconFish : Icon;
     return <Res {...commonProps} />;
   },
 });
 
-const Navigator = createBottomTabNavigator(
+const BottomNavigation = createBottomTabNavigator(
   {
     [TABS.Home]: { screen: HomeNavigator, navigationOptions },
     [TABS.Calendar]: { screen: CalendarNavigator, navigationOptions },
@@ -40,12 +42,12 @@ const Navigator = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      activeTintColor: '#230338', // TODO: theme
-      inactiveTintColor: '#fdecff', // TODO: theme
+      activeTintColor: ACTIVE_TINT_COLOR,
+      inactiveTintColor: PRIMARY_COLOR,
       showIcon: true,
       showLabel: true,
       style: {
-        backgroundColor: '#6058A5', // TODO: theme
+        backgroundColor: TABBAR_BG_COLOR,
         paddingTop: TABBAR_TOP_PADDING,
         paddingBottom: TABBAR_BOTTOM_PADDING,
         height: 60, // TODO: theme
@@ -59,4 +61,6 @@ const Navigator = createBottomTabNavigator(
   },
 );
 
-export default createAppContainer(Navigator);
+const Navigator = createAppContainer(BottomNavigation);
+
+export default withAppState(Navigator);

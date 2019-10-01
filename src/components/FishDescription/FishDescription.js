@@ -15,6 +15,7 @@ import { getFishInfoSelector } from '../../redux/selectors';
 import { getFishInfo } from '../../redux/actions';
 import { removeTags, removeBreaks } from '../../helpers';
 import mapArea from '../../assets/map_preview.png';
+import { PRIMARY_COLOR, ACTIVE_ICON_COLOR } from '../../styles/colors';
 
 const FishDescription = ({ path, navigate }) => {
   const dispatch = useDispatch();
@@ -68,7 +69,7 @@ const FishDescription = ({ path, navigate }) => {
             }}
             name={TABBAR_ICONS[TABS.FishInfo]}
             size={20}
-            color="#230338" // TODO: theme
+            color={ACTIVE_ICON_COLOR} // TODO: theme
           />
           <TouchableOpacity
             onPress={onPress(TABS.MapInfo)}
@@ -81,7 +82,7 @@ const FishDescription = ({ path, navigate }) => {
       <Text
         style={{
           justifyContent: 'flex-end',
-          color: '#fdecff',
+          color: PRIMARY_COLOR,
           fontWeight: 'bold',
         }}
       >
@@ -90,7 +91,7 @@ const FishDescription = ({ path, navigate }) => {
       <Text
         style={{
           justifyContent: 'flex-end',
-          color: '#fdecff',
+          color: PRIMARY_COLOR,
           fontWeight: 'bold',
         }}
       >
