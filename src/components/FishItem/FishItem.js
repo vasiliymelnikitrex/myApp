@@ -6,6 +6,7 @@ import { FISH_IMG_BASE_URL } from '../../constants';
 import { ITEM_MARGIN } from '../../styles/margins';
 import { ITEM_HORIZONTAL_PADDING, ITEM_VERTICAL_PADDING, SECONDARY_TEXT_PADDING } from '../../styles/paddings';
 import { SUB_HEADER_FONT_SIZE, SUB_TEXT_FONT_SIZE } from '../../styles/fontSizes';
+import { PRIMARY_COLOR } from '../../styles/colors';
 
 const FishItem = ({ name, src, onPress }) => (
   <TouchableOpacity
@@ -27,7 +28,7 @@ const FishItem = ({ name, src, onPress }) => (
       <Text
         style={{
           justifyContent: 'flex-end',
-          color: '#fdecff',
+          color: PRIMARY_COLOR,
           fontSize: SUB_HEADER_FONT_SIZE,
           fontWeight: 'bold',
           paddingRight: ITEM_HORIZONTAL_PADDING,
@@ -46,7 +47,7 @@ const FishItem = ({ name, src, onPress }) => (
           style={{
             paddingTop: SECONDARY_TEXT_PADDING,
             paddingRight: SECONDARY_TEXT_PADDING,
-            color: '#fdecff',
+            color: PRIMARY_COLOR,
             fontSize: SUB_TEXT_FONT_SIZE,
           }}
         >
@@ -55,7 +56,7 @@ const FishItem = ({ name, src, onPress }) => (
         <Text
           style={{
             fontSize: SUB_HEADER_FONT_SIZE,
-            color: '#fdecff',
+            color: PRIMARY_COLOR,
           }}
         >
           &rsaquo;

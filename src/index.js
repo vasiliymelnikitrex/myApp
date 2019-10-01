@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import { configureStore } from './store';
 import AppNavigator from './routes/AppNavigator';
+import { GRADIENT_START_COLOR } from './styles/colors';
 
 const store = configureStore();
 
@@ -16,7 +17,10 @@ export default () => {
 
   return (
     <Provider store={store}>
-      <StatusBar backgroundColor="#574574" barStyle="light-content" />
+      <StatusBar
+        backgroundColor={GRADIENT_START_COLOR}
+        barStyle="light-content"
+      />
       <AppNavigator />
     </Provider>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { View, ScrollView, Text } from 'react-native';
 import ArrowBack from '../components/ArrowBack';
 import { TEXT_FONT_SIZE } from '../styles/fontSizes';
+import { PRIMARY_COLOR } from '../styles/colors';
 
 export default ({ navigation }) => {
   const goBack = () => navigation.goBack();
@@ -13,7 +14,7 @@ export default ({ navigation }) => {
         {Object.keys(foodProps).map(
           foodParameter =>
             foodProps[foodParameter] && (
-              <Text key={foodParameter} style={{ color: '#fdecff', fontSize: TEXT_FONT_SIZE }}>
+              <Text key={foodParameter} style={{ color: PRIMARY_COLOR, fontSize: TEXT_FONT_SIZE }}>
                 {foodParameter}: {foodProps[foodParameter]}
               </Text>
             ),
