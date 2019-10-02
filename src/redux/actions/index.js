@@ -1,4 +1,4 @@
-import { getFishListAction, getFishInfoAction } from '../actionCreators';
+import { getFishListAction, getFishInfoAction, getNewsListAction } from '../actionCreators';
 
 export const getFishList = (type, payload) => ({
   type: getFishListAction()[type],
@@ -7,5 +7,10 @@ export const getFishList = (type, payload) => ({
 
 export const getFishInfo = (type, payload) => ({
   type: getFishInfoAction()[type],
+  ...(payload && { payload }),
+});
+
+export const getNewsList = (type, payload) => ({
+  type: getNewsListAction()[type],
   ...(payload && { payload }),
 });

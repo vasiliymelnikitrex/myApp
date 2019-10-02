@@ -1,3 +1,4 @@
+
 import { TAGS, BREAKS } from './regex';
 
 export const removeTags = val => val && val.replace(TAGS, '');

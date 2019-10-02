@@ -7,7 +7,6 @@ export default CustomComponent => props => {
   const fishes = useSelector(getFishListSelector);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     dispatch(getFishList('REQUEST'));
   }, []);

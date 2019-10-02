@@ -63,11 +63,12 @@ export default class RestClient {
     });
   }
 
-  get(endpoint = '', params) {
-    const query = params ? `?${params}` : '';
-
+  get(endpoint, params) {
+    const _params = params || '';
+    const _endpoint = endpoint || '';
+    // alert(`${this.baseUrl}${_endpoint}?${_params}`);
     return this.request(
-      `${this.baseUrl}${endpoint}${query}`,
+      `${this.baseUrl}${_endpoint}?${_params}`,
       this.getConfig('get', null),
     );
   }
