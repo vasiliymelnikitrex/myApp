@@ -5,13 +5,13 @@ import { FISH_LIST_BASE_URL, FISH_DESCRIPTION_URL, NEWS_LIST_BASE_URL } from '..
 
 class Client {
   constructor() {
-    this.fishCilent = new RestClient(FISH_LIST_BASE_URL);
-    this.fishDescriptionCilent = new RestClient(FISH_DESCRIPTION_URL);
-    this.newsCilent = new RestClient(NEWS_LIST_BASE_URL);
+    this.fishClient = new RestClient(FISH_LIST_BASE_URL);
+    this.fishDescriptionClient = new RestClient(FISH_DESCRIPTION_URL);
+    this.newsClient = new RestClient(NEWS_LIST_BASE_URL);
 
-    this.fishes = new Fishes(this.fishCilent);
-    this.fishDescription = new Fishes(this.fishDescriptionCilent);
-    this.news = new News(this.newsCilent);
+    this.fishes = new Fishes(this.fishClient);
+    this.fishDescription = new Fishes(this.fishDescriptionClient);
+    this.news = new News(this.newsClient);
   }
 }
 
