@@ -10,12 +10,14 @@ import {
 } from 'react-native';
 import IconFish from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import { PushableWrapper } from '..';
 import { TABS, TABBAR_ICONS } from '../../constants';
 import { getFishInfoSelector } from '../../redux/selectors';
 import { getFishInfo } from '../../redux/actions';
 import { removeTags, removeBreaks } from '../../helpers';
 import mapArea from '../../assets/map_preview.png';
-import { PRIMARY_COLOR, ACTIVE_ICON_COLOR } from '../../styles/colors';
+import { ACTIVE_ICON_COLOR } from '../../styles/colors';
+import styles from './styles';
 
 const FishDescription = ({ path, navigate }) => {
   const dispatch = useDispatch();
@@ -54,46 +56,33 @@ const FishDescription = ({ path, navigate }) => {
   }, []);
 
   return fishInfo ? (
-    <ScrollView style={{ flex: 1 }}>
-      <View style={{ width: '100%', height: 300 }}>
+    <ScrollView>
+      <PushableWrapper onPress={onPress(TABS.MapInfo)} style={styles.mainViewContainer}>
         <ImageBackground
           source={mapArea}
           resizeMode="stretch"
-          style={{ width: '100%', height: '100%', position: 'relative' }}
+          style={styles.mainViewImage}
         >
           <IconFish
-            style={{
-              position: 'absolute',
-              left: 30,
-              top: 30,
-            }}
+            style={styles.mainViewIcon}
             name={TABBAR_ICONS[TABS.FishInfo]}
             size={20}
             color={ACTIVE_ICON_COLOR} // TODO: theme
           />
-          <TouchableOpacity
-            onPress={onPress(TABS.MapInfo)}
-            style={{ position: 'absolute', left: 10, bottom: 10 }}
+          <View
+            style={styles.mainViewLabel}
           >
             <Text>Open map</Text>
-          </TouchableOpacity>
+          </View>
         </ImageBackground>
-      </View>
+      </PushableWrapper>
       <Text
-        style={{
-          justifyContent: 'flex-end',
-          color: PRIMARY_COLOR,
-          fontWeight: 'bold',
-        }}
+        style={styles.mainViewText}
       >
         {fishInfo && removeBreaks(removeTags(fishInfo.Availability))}
       </Text>
       <Text
-        style={{
-          justifyContent: 'flex-end',
-          color: PRIMARY_COLOR,
-          fontWeight: 'bold',
-        }}
+        style={styles.mainViewText}
       >
         {removeBreaks(removeTags(fishInfo.Biology))}
       </Text>

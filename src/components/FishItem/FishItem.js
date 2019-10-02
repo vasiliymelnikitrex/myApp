@@ -1,75 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, View, Text, Image } from 'react-native';
+import { View, Text } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
+import PushableWrapper from '../PushableWrapper';
 import { FISH_IMG_BASE_URL } from '../../constants';
-import { ITEM_MARGIN } from '../../styles/margins';
-import { ITEM_HORIZONTAL_PADDING, ITEM_VERTICAL_PADDING, SECONDARY_TEXT_PADDING } from '../../styles/paddings';
-import { SUB_HEADER_FONT_SIZE, SUB_TEXT_FONT_SIZE } from '../../styles/fontSizes';
-import { PRIMARY_COLOR } from '../../styles/colors';
+import styles from './styles';
 
 const FishItem = ({ name, src, onPress }) => (
-  <TouchableOpacity
-    style={{
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      marginBottom: ITEM_MARGIN,
-      paddingHorizontal: ITEM_HORIZONTAL_PADDING,
-      paddingVertical: ITEM_VERTICAL_PADDING,
-      backgroundColor: '#6058A5',
-      borderRadius: 15,
-      borderColor: 'transparent',
-      borderWidth: 1,
-    }}
+  <PushableWrapper
+    style={styles.container}
     onPress={onPress}
   >
-    <View style={{ flex: 2 }}>
+    <View style={styles.itemLabel}>
       <Text
-        style={{
-          justifyContent: 'flex-end',
-          color: PRIMARY_COLOR,
-          fontSize: SUB_HEADER_FONT_SIZE,
-          fontWeight: 'bold',
-          paddingRight: ITEM_HORIZONTAL_PADDING,
-        }}
+        style={styles.labelName}
       >
         {name}
       </Text>
       <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'flex-start',
-          alignItems: 'center',
-        }}
+        style={styles.labelLinkContainer}
       >
         <Text
-          style={{
-            paddingTop: SECONDARY_TEXT_PADDING,
-            paddingRight: SECONDARY_TEXT_PADDING,
-            color: PRIMARY_COLOR,
-            fontSize: SUB_TEXT_FONT_SIZE,
-          }}
+          style={styles.labelLinkText}
         >
           more info
         </Text>
         <Text
-          style={{
-            fontSize: SUB_HEADER_FONT_SIZE,
-            color: PRIMARY_COLOR,
-          }}
+          style={styles.labelLinkArrow}
         >
           &rsaquo;
         </Text>
       </View>
     </View>
-    <Image
-      style={{ height: 50, flex: 1, justifyContent: 'flex-end' }}
+    <FastImage
+      style={styles.itemImage}
       source={{ uri: `${FISH_IMG_BASE_URL}${src}` }}
-      resizeMode="contain"
-      resizeMethod="resize"
+      resizeMode={FastImage.resizeMode.contain}
     />
-  </TouchableOpacity>
+  </PushableWrapper>
 );
 
 FishItem.propTypes = {

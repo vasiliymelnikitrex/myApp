@@ -2,11 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, FlatList } from 'react-native';
 
-import { Container, FishItem } from '../components';
+import { Container, FishItem, Search } from '../components';
 import { sortData } from '../helpers';
-import { ITEM_VERTICAL_PADDING } from '../styles/paddings';
-import { TEXT_FONT_SIZE } from '../styles/fontSizes';
-import { PRIMARY_COLOR } from '../styles/colors';
 
 const FishInfo = ({ fishes, navigation }) => {
   const handlePress = data => () =>
@@ -23,15 +20,7 @@ const FishInfo = ({ fishes, navigation }) => {
         <Text>Waiting...</Text>
       ) : (
         <>
-          <Text
-            style={{
-              paddingVertical: ITEM_VERTICAL_PADDING,
-              color: PRIMARY_COLOR,
-              fontSize: TEXT_FONT_SIZE,
-            }}
-          >
-            Search...
-          </Text>
+          <Search />
           <FlatList
             keyExtractor={getKey}
             data={sortData(fishes)}
