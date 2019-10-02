@@ -1,4 +1,6 @@
 import { createStackNavigator } from 'react-navigation-stack';
+
+import navigationConfig from './navigationConfig';
 import { TABS } from '../constants';
 import { FishInfo, Details, MapInfo, FoodInfo } from '../screens';
 import { withFishList } from '../hocs';
@@ -36,6 +38,6 @@ const FishInfoNavigator = createStackNavigator({
       headerBackTitle: null,
     },
   },
-});
+}, navigationConfig);
 
 export default FishInfoNavigator;
