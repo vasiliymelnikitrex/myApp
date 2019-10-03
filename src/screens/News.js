@@ -1,22 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView, View, Text } from 'react-native';
+import { FlatList } from 'react-native';
 
-import { Container } from '../components';
+import { Container, ScreenHeader, NewsItem } from '../components';
 
-const News = ({ data }) => (
-  <Container>
-    <ScrollView>
-      {data.map((item, i) => (
-        <View>
-          <Text>
-            {`${i + 1}. ${item.title}`}
-          </Text>
-        </View>
-      ))}
-    </ScrollView>
-  </Container>
-);
+const News = ({ data, navigation }) => {
+  const removeDuplicateData = news => news; // TODO
+  const getKey = ({ title }) => title;
+
+  return (
+    <Container>
+      <ScreenHeader title={navigation.state.routeName} />
+      {Boolean(data.length) && (
+        <FlatList
+          keyExtractor={getKey}
+          data={removeDuplicateData(data)}
+          renderItem={({ item }) => <NewsItem news={item} />}
+        />
+      )}
+    </Container>
+  );
+};
 
 News.propTypes = {
   data: PropTypes.arrayOf(
@@ -31,10 +35,11 @@ News.propTypes = {
       content: PropTypes.string,
     }),
   ),
+  navigation: PropTypes.object.isRequired,
 };
 
 News.defaultProps = {
-  data: null,
+  data: [],
 };
 
 export default News;

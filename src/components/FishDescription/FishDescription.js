@@ -67,7 +67,7 @@ const FishDescription = ({ path, navigate }) => {
             style={styles.mainViewIcon}
             name={TABBAR_ICONS[TABS.FishInfo]}
             size={20}
-            color={ACTIVE_ICON_COLOR} // TODO: theme
+            color={ACTIVE_ICON_COLOR}
           />
           <View
             style={styles.mainViewLabel}

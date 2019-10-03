@@ -23,6 +23,7 @@ export const FISH_LIST_BASE_URL = 'https://api.myjson.com/bins/x71ex';
 export const FISH_IMG_BASE_URL = `${API_BASE_URL}/sites/default/files`;
 export const FISH_DESCRIPTION_URL = `${API_BASE_URL}/api/species`;
 export const NEWS_LIST_BASE_URL = 'https://newsapi.org/v2/everything';
+export const DEFAULT_NEWS_URL_IMAGE = 'https://cdn.ymaws.com/www.itsmfusa.org/resource/resmgr/images/more_images/news-3.jpg'
 
 // https://www.fishwatch.gov/api/species - varieties
 // https://www.fishwatch.gov/developers

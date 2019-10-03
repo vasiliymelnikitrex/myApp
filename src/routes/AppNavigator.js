@@ -50,7 +50,7 @@ const BottomNavigation = createBottomTabNavigator(
         backgroundColor: TABBAR_BG_COLOR,
         paddingTop: TABBAR_TOP_PADDING,
         paddingBottom: TABBAR_BOTTOM_PADDING,
-        height: 60, // TODO: theme
+        height: 60,
         borderTopWidth: 0,
       },
       tabStyle: { border: 'none' },
