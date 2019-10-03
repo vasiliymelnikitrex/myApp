@@ -2,14 +2,14 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import navigationConfig from './navigationConfig';
 import { TABS } from '../constants';
-import { FishInfo, Details, MapInfo, FoodInfo } from '../screens';
-import { withFishList } from '../hocs';
+import { FishList, Details, MapInfo, FoodInfo } from '../screens';
+import { withFetchData } from '../hocs';
 
-const FishInfoNavigator = createStackNavigator({
-  [TABS.FishInfo]: {
-    screen: withFishList(FishInfo),
+const FishListNavigator = createStackNavigator({
+  [TABS.FishList]: {
+    screen: withFetchData(FishList),
     navigationOptions: {
-      title: TABS.FishInfo,
+      title: TABS.FishList,
       header: null,
       headerBackTitle: null,
     },
@@ -40,4 +40,4 @@ const FishInfoNavigator = createStackNavigator({
   },
 }, navigationConfig);
 
-export default FishInfoNavigator;
+export default FishListNavigator;

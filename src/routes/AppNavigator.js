@@ -7,7 +7,7 @@ import { TABS, TABBAR_ICONS } from '../constants';
 import {
   HomeNavigator,
   NewsNavigator,
-  FishInfoNavigator,
+  FishListNavigator,
   SettingsNavigator,
   CalendarNavigator,
 } from '.';
@@ -27,7 +27,7 @@ const navigationOptions = ({
       size: TABBAR_ICONS[routeName] === 'fish' ? 32.5 : 22.5,
       color: focused ? ACTIVE_TINT_COLOR : tintColor,
     };
-    const Res = routeName === 'FishInfo' ? IconFish : Icon;
+    const Res = routeName === TABS.FishList ? IconFish : Icon;
     return <Res {...commonProps} />;
   },
 });
@@ -37,7 +37,7 @@ const BottomNavigation = createBottomTabNavigator(
     [TABS.Home]: { screen: HomeNavigator, navigationOptions },
     [TABS.Calendar]: { screen: CalendarNavigator, navigationOptions },
     [TABS.News]: { screen: NewsNavigator, navigationOptions },
-    [TABS.FishInfo]: { screen: FishInfoNavigator, navigationOptions },
+    [TABS.FishList]: { screen: FishListNavigator, navigationOptions },
     [TABS.Settings]: { screen: SettingsNavigator, navigationOptions },
   },
   {

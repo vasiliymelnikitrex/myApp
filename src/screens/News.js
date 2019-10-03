@@ -4,10 +4,10 @@ import { ScrollView, View, Text } from 'react-native';
 
 import { Container } from '../components';
 
-const News = ({ news }) => (
+const News = ({ data }) => (
   <Container>
     <ScrollView>
-      {news.map((item, i) => (
+      {data.map((item, i) => (
         <View>
           <Text>
             {`${i + 1}. ${item.title}`}
@@ -19,7 +19,7 @@ const News = ({ news }) => (
 );
 
 News.propTypes = {
-  news: PropTypes.arrayOf(
+  data: PropTypes.arrayOf(
     PropTypes.shape({
       source: PropTypes.shape({}),
       author: PropTypes.string,
@@ -34,7 +34,7 @@ News.propTypes = {
 };
 
 News.defaultProps = {
-  news: null,
+  data: null,
 };
 
 export default News;

@@ -10,7 +10,7 @@ export const getFishInfo = (type, payload) => ({
   ...(payload && { payload }),
 });
 
-export const getNewsList = (type, payload) => ({
+export const getNews = (type, payload) => ({
   type: getNewsListAction()[type],
   ...(payload && { payload }),
 });
