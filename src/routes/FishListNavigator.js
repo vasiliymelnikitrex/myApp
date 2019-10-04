@@ -4,10 +4,11 @@ import navigationConfig from './navigationConfig';
 import { TABS } from '../constants';
 import { FishList, Details, MapInfo, FoodInfo } from '../screens';
 import { withFetchData } from '../hocs';
+import { connectErrorHandling } from '../hocs/errorHadnling';
 
 const FishListNavigator = createStackNavigator({
   [TABS.FishList]: {
-    screen: withFetchData(FishList),
+    screen: connectErrorHandling(withFetchData(FishList)),
     navigationOptions: {
       title: TABS.FishList,
       header: null,
@@ -15,7 +16,7 @@ const FishListNavigator = createStackNavigator({
     },
   },
   [TABS.Details]: {
-    screen: Details,
+    screen: connectErrorHandling(Details),
     navigationOptions: {
       title: TABS.Details,
       header: null,
@@ -23,7 +24,7 @@ const FishListNavigator = createStackNavigator({
     },
   },
   [TABS.MapInfo]: {
-    screen: MapInfo,
+    screen: connectErrorHandling(MapInfo),
     navigationOptions: {
       title: TABS.MapInfo,
       header: null,
@@ -31,7 +32,7 @@ const FishListNavigator = createStackNavigator({
     },
   },
   [TABS.FoodInfo]: {
-    screen: FoodInfo,
+    screen: connectErrorHandling(FoodInfo),
     navigationOptions: {
       title: TABS.FoodInfo,
       header: null,

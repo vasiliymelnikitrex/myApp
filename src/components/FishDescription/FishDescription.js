@@ -65,7 +65,7 @@ const FishDescription = ({ path, navigate }) => {
         >
           <IconFish
             style={styles.mainViewIcon}
-            name={TABBAR_ICONS[TABS.FishInfo]}
+            name={TABBAR_ICONS[TABS.FishList]}
             size={20}
             color={ACTIVE_ICON_COLOR}
           />

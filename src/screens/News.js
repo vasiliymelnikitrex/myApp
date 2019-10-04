@@ -4,8 +4,8 @@ import { FlatList } from 'react-native';
 
 import { Container, ScreenHeader, NewsItem } from '../components';
 
-const News = ({ data, navigation }) => {
-  const removeDuplicateData = news => news; // TODO
+const News = ({ data, navigation, alertWithType }) => {
+  // const removeDuplicateData = news => news; // TODO
   const getKey = ({ title }) => title;
 
   return (
@@ -14,8 +14,10 @@ const News = ({ data, navigation }) => {
       {Boolean(data.length) && (
         <FlatList
           keyExtractor={getKey}
-          data={removeDuplicateData(data)}
-          renderItem={({ item }) => <NewsItem news={item} />}
+          data={data}
+          renderItem={({ item }) => (
+            <NewsItem alertWithType={alertWithType} news={item} />
+          )}
         />
       )}
     </Container>

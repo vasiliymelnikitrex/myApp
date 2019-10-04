@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     padding: SECONDARY_TEXT_PADDING,
-    backgroundColor: 'rgba(0, 0, 0, .35)',
+    backgroundColor: 'rgba(0, 0, 0, .5)',
   },
   text: {
     color: PRIMARY_COLOR,

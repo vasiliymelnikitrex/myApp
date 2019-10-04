@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     fontSize: TEXT_FONT_SIZE,
     color: PRIMARY_COLOR,
   },
-  itemImage: { height: 50, flex: 1, justifyContent: 'flex-end' },
+  itemImage: { height: 70, flex: 1, justifyContent: 'flex-end' },
 });
 
 export default styles;
