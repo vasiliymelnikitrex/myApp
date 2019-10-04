@@ -56,7 +56,7 @@ const FishDescription = ({ path, navigate }) => {
   }, []);
 
   return fishInfo ? (
-    <ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false}>
       <PushableWrapper onPress={onPress(TABS.MapInfo)} style={styles.mainViewContainer}>
         <ImageBackground
           source={mapArea}

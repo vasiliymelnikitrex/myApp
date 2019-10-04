@@ -15,3 +15,5 @@ export const sortData = data =>
     }
     return 0;
   });
+
+export const filterByKey = (val, key) => item => item[key].toLowerCase().includes(val.toLowerCase());

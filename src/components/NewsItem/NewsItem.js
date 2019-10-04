@@ -3,30 +3,38 @@ import PropTypes from 'prop-types';
 import { Linking, ImageBackground, View, Text } from 'react-native';
 
 import PushableWrapper from '../PushableWrapper';
-import { DEFAULT_NEWS_URL_IMAGE } from '../../constants';
+import { DEFAULT_NEWS_URL_IMAGE, MAX_STRING_LIMIT } from '../../constants';
 
 import styles from './styles';
 
-const NewsItem = ({ news }) => {
+const NewsItem = ({ news: { title, url, urlToImage, description, publishedAt } }) => {
   const onPress = () => {
-    Linking.openURL(news.url).catch(() => null); // TODO
+    Linking.openURL(url).catch(() => null); // TODO
     // alertWithType('Error', 'Sorry!', 'Fixer.io can not be opened'),
   };
-  const parseDate = date => date.split('T').join(' ').slice(0, -4);
+
+  const parseDate = date =>
+    date
+      .split('T')
+      .join(' ')
+      .slice(0, -4);
+
+  const getTruncatedDescription = text =>
+    (text.length > MAX_STRING_LIMIT ? `${text.substring(0, MAX_STRING_LIMIT - 3)}...` : text);
 
   return (
-    <PushableWrapper onPress={onPress}>
+    <PushableWrapper style={styles.container} onPress={onPress}>
       <ImageBackground
-        source={{ uri: news.urlToImage || DEFAULT_NEWS_URL_IMAGE }}
+        source={{ uri: urlToImage || DEFAULT_NEWS_URL_IMAGE }}
         resizeMode="stretch"
         style={styles.mainViewImage}
       >
         <View style={styles.textContainer}>
           <Text style={{ ...styles.text, ...styles.headText }}>
-            {news.title}
+            {title}
           </Text>
-          <Text style={styles.text}>{parseDate(news.publishedAt)}</Text>
-          <Text style={styles.text}>{news.description}</Text>
+          <Text style={styles.text}>{parseDate(publishedAt)}</Text>
+          <Text style={styles.text}>{getTruncatedDescription(description)}</Text>
         </View>
       </ImageBackground>
     </PushableWrapper>

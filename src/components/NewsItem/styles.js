@@ -3,14 +3,23 @@ import { ITEM_MARGIN } from '../../styles/margins';
 import { SECONDARY_TEXT_PADDING } from '../../styles/paddings';
 import { PRIMARY_COLOR } from '../../styles/colors';
 import { SUB_TEXT_FONT_SIZE } from '../../styles/fontSizes';
+import { BORDER_RADIUS_COMMON } from '../../styles/borders';
 
 const styles = StyleSheet.create({
+  container: {
+    borderColor: PRIMARY_COLOR,
+    minHeight: 200,
+    borderWidth: 2,
+    borderRadius: BORDER_RADIUS_COMMON / 2,
+    marginBottom: ITEM_MARGIN,
+    overflow: 'hidden',
+  },
   mainViewImage: {
     width: '100%',
-    height: 200,
+    minHeight: 200,
     position: 'relative',
-    marginBottom: ITEM_MARGIN,
     justifyContent: 'flex-end',
+    borderRadius: BORDER_RADIUS_COMMON,
   },
   textContainer: {
     padding: SECONDARY_TEXT_PADDING,

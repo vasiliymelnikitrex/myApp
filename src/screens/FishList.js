@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { FlatList } from 'react-native';
+import { FlatList, Keyboard } from 'react-native';
 
 import { Container, FishItem, Search } from '../components';
-import { sortData } from '../helpers';
+import { sortData, filterByKey } from '../helpers';
 
 const FishList = ({ data, navigation }) => {
+  const [filteredData, setFilteredData] = useState(null);
+
   const handlePress = scopedData => () =>
     navigation.navigate('Details', {
       data: scopedData,
@@ -14,12 +16,17 @@ const FishList = ({ data, navigation }) => {
 
   const getKey = ({ name, src }) => name + src;
 
+  const handleChange = val => setFilteredData(data.filter(filterByKey(val, 'species_name')));
+
+  const handleScroll = () => Keyboard.dismiss();
+
   return (
     <Container>
-      <Search />
+      <Search onChange={handleChange} />
       <FlatList
         keyExtractor={getKey}
-        data={sortData(data)}
+        data={filteredData || sortData(data)}
+        onScrollBeginDrag={handleScroll}
         renderItem={({ item }) => (
           <FishItem
             name={item.species_name}
