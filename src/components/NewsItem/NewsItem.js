@@ -13,17 +13,17 @@ const NewsItem = ({
   alertWithType,
 }) => {
   const onPress = () =>
-    Linking.openURL(`sdfsdfsd${url}`).catch(() =>
+    Linking.openURL(`${url}`).catch(() =>
       alertWithType('error', 'Sorry!', 'Cannot open the link')); // TODO constants
 
   const parseDate = date =>
-    date
+    date && date
       .split('T')
       .join(' ')
       .slice(0, -4);
 
   const getTruncatedDescription = text =>
-    (text.length > MAX_STRING_LIMIT
+    text && (text.length > MAX_STRING_LIMIT
       ? `${text.substring(0, MAX_STRING_LIMIT - 3)}...`
       : text);
 
