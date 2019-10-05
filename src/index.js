@@ -16,16 +16,16 @@ export default () => {
       SplashScreen.hide();
     }, 1000);
   }, []);
-  // TODO: Create context, wrap all of app and pass alertWithType
+
   return (
-    <Provider store={store}>
-      <StatusBar
-        backgroundColor={GRADIENT_START_COLOR}
-        barStyle="light-content"
-      />
-      <ErrorHandlingProvider>
+    <ErrorHandlingProvider>
+      <Provider store={store}>
+        <StatusBar
+          backgroundColor={GRADIENT_START_COLOR}
+          barStyle="light-content"
+        />
         <AppNavigator />
-      </ErrorHandlingProvider>
-    </Provider>
+      </Provider>
+    </ErrorHandlingProvider>
   );
 };

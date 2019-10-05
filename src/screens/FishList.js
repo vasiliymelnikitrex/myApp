@@ -46,8 +46,12 @@ FishList.propTypes = {
       species_name: PropTypes.string,
       path: PropTypes.string,
     }),
-  ).isRequired,
+  ),
   navigation: PropTypes.object.isRequired,
+};
+
+FishList.defaultProps = {
+  data: [],
 };
 
 export default FishList;

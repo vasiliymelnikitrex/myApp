@@ -9,7 +9,7 @@ export default CustomComponent => props => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(actions[`get${CustomComponent.name}`]('REQUEST'));
+    dispatch(actions[`get${CustomComponent.name}`]('REQUEST', props.alertWithType));
   }, []);
 
   return <CustomComponent data={data} {...props} />;

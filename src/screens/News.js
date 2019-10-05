@@ -11,12 +11,12 @@ const News = ({ data, navigation, alertWithType }) => {
   return (
     <Container>
       <ScreenHeader title={navigation.state.routeName} />
-      {Boolean(data.length) && (
+      {Boolean(data.length > 10) && ( // TODO
         <FlatList
           keyExtractor={getKey}
           data={data}
           renderItem={({ item }) => (
-            <NewsItem alertWithType={alertWithType} news={item} />
+            item.url && <NewsItem alertWithType={alertWithType} news={item} />
           )}
         />
       )}
