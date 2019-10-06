@@ -12,14 +12,16 @@ import IconFish from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { PushableWrapper } from '..';
 import { TABS, TABBAR_ICONS } from '../../constants';
-import { getFishInfoSelector } from '../../redux/selectors';
+import {
+  getFishInfoSelector,
+} from '../../redux/selectors';
 import { getFishInfo } from '../../redux/actions';
 import { removeTags, removeBreaks } from '../../helpers';
 import mapArea from '../../assets/map_preview.png';
 import { ACTIVE_ICON_COLOR } from '../../styles/colors';
 import styles from './styles';
 
-const FishDescription = ({ path, navigate }) => {
+const FishDescription = ({ path, navigate, alertWithType }) => {
   const dispatch = useDispatch();
   const fishInfo = useSelector(getFishInfoSelector);
 
@@ -52,12 +54,15 @@ const FishDescription = ({ path, navigate }) => {
   };
 
   useEffect(() => {
-    dispatch(getFishInfo('REQUEST', path));
+    dispatch(getFishInfo('REQUEST', { path, alertWithType }));
   }, []);
 
   return fishInfo ? (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <PushableWrapper onPress={onPress(TABS.MapInfo)} style={styles.mainViewContainer}>
+      <PushableWrapper
+        onPress={onPress(TABS.MapInfo)}
+        style={styles.mainViewContainer}
+      >
         <ImageBackground
           source={mapArea}
           resizeMode="stretch"
@@ -69,21 +74,15 @@ const FishDescription = ({ path, navigate }) => {
             size={20}
             color={ACTIVE_ICON_COLOR}
           />
-          <View
-            style={styles.mainViewLabel}
-          >
+          <View style={styles.mainViewLabel}>
             <Text>Open map</Text>
           </View>
         </ImageBackground>
       </PushableWrapper>
-      <Text
-        style={styles.mainViewText}
-      >
+      <Text style={styles.mainViewText}>
         {fishInfo && removeBreaks(removeTags(fishInfo.Availability))}
       </Text>
-      <Text
-        style={styles.mainViewText}
-      >
+      <Text style={styles.mainViewText}>
         {removeBreaks(removeTags(fishInfo.Biology))}
       </Text>
       <TouchableOpacity onPress={onPress(TABS.FoodInfo)}>
@@ -99,6 +98,7 @@ const FishDescription = ({ path, navigate }) => {
 
 FishDescription.propTypes = {
   path: PropTypes.string.isRequired,
+  alertWithType: PropTypes.func.isRequired,
 };
 
 export default FishDescription;

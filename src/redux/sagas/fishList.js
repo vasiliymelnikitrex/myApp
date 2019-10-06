@@ -1,8 +1,11 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { getFishListAction, getFishInfoAction } from '../actionCreators';
+import {
+  getFishListAction,
+  getFishInfoAction,
+} from '../actionCreators';
 import client from '../../api-client';
 
-function* getFishList() {
+function* getFishList({ payload }) {
   try {
     const response = yield call(client.fishes.getFishData);
 
@@ -13,7 +16,11 @@ function* getFishList() {
   } catch (err) {
     yield put({
       type: getFishListAction().ERROR,
-      payload: err,
+      errData: {
+        message: err.message,
+        handler: payload,
+        action: getFishListAction(),
+      },
     });
   }
 }
@@ -22,8 +29,9 @@ function* getFishDescription({ payload }) {
   try {
     const response = yield call(
       client.fishDescription.getFishDescription,
-      payload,
+      payload.path,
     );
+
     yield put({
       type: getFishInfoAction().SUCCESS,
       payload: response,
@@ -31,7 +39,11 @@ function* getFishDescription({ payload }) {
   } catch (err) {
     yield put({
       type: getFishInfoAction().ERROR,
-      payload: err,
+      errData: {
+        message: "Can't get data from the url", // TODO: Error urls
+        handler: payload.alertWithType,
+        action: getFishInfoAction(),
+      },
     });
   }
 }
@@ -40,41 +52,3 @@ export default [
   takeLatest(getFishListAction().REQUEST, getFishList),
   takeLatest(getFishInfoAction().REQUEST, getFishDescription),
 ];
-
-/**
- * import { call, put, takeLatest } from 'redux-saga/effects';
-import { getNewsListAction } from '../actionCreators';
-import client from '../../api-client';
-
-function* getNewsList({ payload }) {
-  try {
-    const response = yield call(client.news.getNewsData);
-    if (response.status === 'error') {
-      yield put({
-        type: getNewsListAction().ERROR,
-        errData: {
-          message: response.message,
-          handler: payload,
-          action: getNewsListAction()
-        },
-      });
-    }
-    yield put({
-      type: getNewsListAction().SUCCESS,
-      payload: response,
-    });
-  } catch (err) {
-    yield put({
-      type: getNewsListAction().ERROR,
-      errData: {
-        message: err.message, // TODO:
-        handler: payload,
-        action: getNewsListAction()
-      },
-    });
-  }
-}
-
-export default [takeLatest(getNewsListAction().REQUEST, getNewsList)];
-
- */

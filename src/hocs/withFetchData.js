@@ -6,6 +6,7 @@ import * as selectors from '../redux/selectors';
 
 export default CustomComponent => props => {
   const data = useSelector(selectors[`get${CustomComponent.name}Selector`]);
+  // const isFetching = useSelector(selectors[`is${CustomComponent.name}FetchingSelector`]);
   const dispatch = useDispatch();
 
   useEffect(() => {

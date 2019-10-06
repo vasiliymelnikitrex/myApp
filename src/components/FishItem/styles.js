@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: ITEM_MARGIN,
-    paddingHorizontal: ITEM_HORIZONTAL_PADDING,
+    paddingHorizontal: ITEM_HORIZONTAL_PADDING * 1.375,
     paddingVertical: ITEM_VERTICAL_PADDING,
     backgroundColor: '#6058A5',
     borderRadius: BORDER_RADIUS_COMMON,

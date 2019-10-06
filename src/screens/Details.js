@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Container, ArrowBack } from '../components';
 
-const Details = ({ navigation }) => {
+const Details = ({ navigation, alertWithType }) => {
   const goBack = () => navigation.goBack();
   const { params: { renderComponent, data }, routeName } = navigation.state;
   const { navigate } = navigation;
@@ -23,7 +23,7 @@ const Details = ({ navigation }) => {
     <Container>
       <ArrowBack title={routeName} goBack={goBack} />
       <Suspense fallback={null}>
-        <RenderComponent {...data} navigate={navigate} />
+        <RenderComponent {...data} navigate={navigate} alertWithType={alertWithType} />
       </Suspense>
     </Container>
   );
@@ -31,6 +31,7 @@ const Details = ({ navigation }) => {
 
 Details.propTypes = {
   navigation: PropTypes.object.isRequired,
+  alertWithType: PropTypes.func.isRequired,
 };
 
 export default Details;

@@ -1,4 +1,8 @@
-import { getFishListAction, getFishInfoAction, getNewsListAction } from '../actionCreators';
+import {
+  getFishListAction,
+  getFishInfoAction,
+  getNewsListAction,
+} from '../actionCreators';
 
 export const getFishList = (type, payload) => ({
   type: getFishListAction()[type],
