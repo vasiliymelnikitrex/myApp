@@ -6,7 +6,7 @@ import {
 } from '../actionCreators';
 
 function* handleError({ errData }) {
-  yield errData.handler('error', 'Sorry!', errData.message);
+  yield errData.handler('error', 'Sorry!', errData.message); // TODO: messages
   yield put({
     type: errData.action.FAIL,
   });

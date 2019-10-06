@@ -5,7 +5,7 @@ import client from '../../api-client';
 function* getNewsList({ payload }) {
   try {
     const response = yield call(client.news.getNewsData);
-    if (response.status === 'error') {
+    if (response.status !== 'ok') {
       yield put({
         type: getNewsListAction().ERROR,
         errData: {
@@ -23,7 +23,7 @@ function* getNewsList({ payload }) {
     yield put({
       type: getNewsListAction().ERROR,
       errData: {
-        message: err.message, // TODO:
+        message: err.message,
         handler: payload,
         action: getNewsListAction()
       },

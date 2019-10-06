@@ -4,14 +4,14 @@ import { all } from 'redux-saga/effects';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from '../redux/reducers';
 import sagas from '../redux/sagas';
+import { spinner } from '../redux/middleware';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export default (initialState = {}) => {
+export default () => {
   const store = createStore(
     reducer,
-    initialState,
-    composeWithDevTools(applyMiddleware(sagaMiddleware)),
+    composeWithDevTools(applyMiddleware(spinner, sagaMiddleware)),
   );
   sagaMiddleware.run(function* rootSaga() {
     yield all([...sagas]);
