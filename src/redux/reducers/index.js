@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import fishes from './fishes';
-import fishInfo from './fishInfo';
+import fishDescription from './fishDescription';
 import news from './news';
 
 export default combineReducers({
   fishes,
-  fishInfo,
+  fishDescription,
   news,
 });

@@ -1,5 +1,5 @@
 export const STATES = {
-  FISH_INFO: 'FISH_INFO',
+  FISH_DESCRIPTION: 'FISH_DESCRIPTION',
 };
 
 export const TABS = {

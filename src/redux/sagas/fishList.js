@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import {
   getFishListAction,
-  getFishInfoAction,
+  getFishDescriptionAction,
 } from '../actionCreators';
 import client from '../../api-client';
 
@@ -26,23 +26,25 @@ function* getFishList({ payload }) {
 }
 
 function* getFishDescription({ payload }) {
+  const [alertWithType, path] = payload;
+
   try {
     const response = yield call(
       client.fishDescription.getFishDescription,
-      payload.path,
+      path,
     );
 
     yield put({
-      type: getFishInfoAction().SUCCESS,
+      type: getFishDescriptionAction().SUCCESS,
       payload: response,
     });
   } catch (err) {
     yield put({
-      type: getFishInfoAction().ERROR,
+      type: getFishDescriptionAction().ERROR,
       errData: {
         message: "Can't get data from the url", // TODO: Error urls
-        handler: payload.alertWithType,
-        action: getFishInfoAction(),
+        handler: alertWithType,
+        action: getFishDescriptionAction(),
       },
     });
   }
@@ -50,5 +52,5 @@ function* getFishDescription({ payload }) {
 
 export default [
   takeLatest(getFishListAction().REQUEST, getFishList),
-  takeLatest(getFishInfoAction().REQUEST, getFishDescription),
+  takeLatest(getFishDescriptionAction().REQUEST, getFishDescription),
 ];
