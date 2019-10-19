@@ -11,60 +11,60 @@ import {
 import IconFish from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { PushableWrapper, Spinner } from '..';
+import { withFetchData } from '../../hocs';
 import { TABS, TABBAR_ICONS } from '../../constants';
-import { getFishInfoSelector } from '../../redux/selectors';
-import { getFishInfo, clearState } from '../../redux/actions';
+import { getFishDescriptionSelector } from '../../redux/selectors';
+import { clearState } from '../../redux/actions';
 import { removeTags, removeBreaks } from '../../helpers';
 import mapArea from '../../assets/map_preview.png';
 import { ACTIVE_ICON_COLOR } from '../../styles/colors';
 import styles from './styles';
 
-const FishDescription = ({ path, navigate, alertWithType }) => {
+const FishDescription = ({ navigate, isFetching }) => {
   const dispatch = useDispatch();
-  const fishInfo = useSelector(getFishInfoSelector);
+  const fishDescription = useSelector(getFishDescriptionSelector);
+
+  const isDataReady = (Object.keys(fishDescription).length > 1) && mapArea;
 
   const onPress = screen => () => {
-    const stateProps = fishInfo && {
+    const stateProps = {
       [TABS.MapInfo]: {},
       [TABS.FoodInfo]: {
-        calories: fishInfo.Calories,
-        carbohydrate: fishInfo.Carbohydrate,
-        cholesterol: fishInfo.Cholesterol,
-        color: removeBreaks(removeTags(fishInfo.Color)),
-        fat: fishInfo['Fat, Total'],
-        fiber: fishInfo['Fiber, Total Dietary'],
-        healthBenefits: removeBreaks(removeTags(fishInfo['Health Benefits'])),
-        humanHealth: removeBreaks(removeTags(fishInfo['Human Health'])),
+        calories: fishDescription.Calories,
+        carbohydrate: fishDescription.Carbohydrate,
+        cholesterol: fishDescription.Cholesterol,
+        color: removeBreaks(removeTags(fishDescription.Color)),
+        fat: fishDescription['Fat, Total'],
+        fiber: fishDescription['Fiber, Total Dietary'],
+        healthBenefits: removeBreaks(removeTags(fishDescription['Health Benefits'])),
+        humanHealth: removeBreaks(removeTags(fishDescription['Human Health'])),
         physicalDescription: removeBreaks(
-          removeTags(fishInfo['Physical Description']),
+          removeTags(fishDescription['Physical Description']),
         ),
-        production: fishInfo.Production,
-        protein: fishInfo.Protein,
-        saturatedFattyAcids: fishInfo['Saturated Fatty Acids, Total'],
-        selenium: fishInfo.Selenium,
-        servingWeight: fishInfo['Serving Weight'],
-        sodium: fishInfo.Sodium,
-        sugars: fishInfo['Sugars, Total'],
-        taste: removeBreaks(removeTags(fishInfo.Taste)),
+        production: fishDescription.Production,
+        protein: fishDescription.Protein,
+        saturatedFattyAcids: fishDescription['Saturated Fatty Acids, Total'],
+        selenium: fishDescription.Selenium,
+        servingWeight: fishDescription['Serving Weight'],
+        sodium: fishDescription.Sodium,
+        sugars: fishDescription['Sugars, Total'],
+        taste: removeBreaks(removeTags(fishDescription.Taste)),
       },
     };
     navigate(screen, stateProps[TABS[screen]]);
   };
 
-  useEffect(() => {
-    dispatch(getFishInfo('REQUEST', { path, alertWithType }));
-    return () => dispatch(clearState('FISH_INFO'));
-  }, []);
+  useEffect(() => () => dispatch(clearState('FISH_DESCRIPTION')), []);
 
-  return fishInfo.isFetching ? (
+  return isFetching ? (
     <Spinner />
-  ) : (
+  ) : isDataReady && (
     <ScrollView showsVerticalScrollIndicator={false}>
       <PushableWrapper
         onPress={onPress(TABS.MapInfo)}
         style={styles.mainViewContainer}
       >
-        <ImageBackground
+        <ImageBackground // TODO: Fast Image Bg
           source={mapArea}
           resizeMode="stretch"
           style={styles.mainViewImage}
@@ -81,10 +81,10 @@ const FishDescription = ({ path, navigate, alertWithType }) => {
         </ImageBackground>
       </PushableWrapper>
       <Text style={styles.mainViewText}>
-        {fishInfo && removeBreaks(removeTags(fishInfo.Availability))}
+        {fishDescription && removeBreaks(removeTags(fishDescription.Availability))}
       </Text>
       <Text style={styles.mainViewText}>
-        {removeBreaks(removeTags(fishInfo.Biology))}
+        {removeBreaks(removeTags(fishDescription.Biology))}
       </Text>
       <TouchableOpacity onPress={onPress(TABS.FoodInfo)}>
         <Text>Food</Text>
@@ -94,8 +94,7 @@ const FishDescription = ({ path, navigate, alertWithType }) => {
 };
 
 FishDescription.propTypes = {
-  path: PropTypes.string.isRequired,
-  alertWithType: PropTypes.func.isRequired,
+  isFetching: PropTypes.bool.isRequired,
 };
 
-export default FishDescription;
+export default withFetchData(FishDescription);

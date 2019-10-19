@@ -5,7 +5,7 @@ import { FlatList, Keyboard } from 'react-native';
 import { Container, FishItem, Search, Spinner } from '../components';
 import { sortData, filterByKey } from '../helpers';
 
-const FishList = ({ data, navigation }) => {
+const FishList = ({ data, navigation, isFetching }) => {
   const [filteredData, setFilteredData] = useState(null);
 
   const handlePress = scopedData => () =>
@@ -24,7 +24,9 @@ const FishList = ({ data, navigation }) => {
   return (
     <Container>
       <Search onChange={handleChange} />
-      {data.length ? (
+      {isFetching ? (
+        <Spinner />
+      ) : (
         <FlatList
           keyExtractor={getKey}
           data={filteredData || sortData(data)}
@@ -37,8 +39,6 @@ const FishList = ({ data, navigation }) => {
             />
           )}
         />
-      ) : (
-        <Spinner />
       )}
     </Container>
   );
@@ -53,6 +53,7 @@ FishList.propTypes = {
     }),
   ),
   navigation: PropTypes.object.isRequired,
+  isFetching: PropTypes.bool.isRequired,
 };
 
 FishList.defaultProps = {

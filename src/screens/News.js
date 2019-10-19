@@ -6,7 +6,7 @@ import { Container, ScreenHeader, NewsItem, Spinner } from '../components';
 
 import { removeDuplicateData } from '../helpers';
 
-const News = ({ data, navigation, alertWithType }) => {
+const News = ({ data, navigation, isFetching, alertWithType }) => {
   const filteredNews = removeDuplicateData(data);
 
   const getKey = ({ publishedAt }) => publishedAt;
@@ -14,17 +14,16 @@ const News = ({ data, navigation, alertWithType }) => {
   return (
     <Container>
       <ScreenHeader title={navigation.state.routeName} />
-      {data.length ? (
+      {isFetching ? (
+        <Spinner />
+      ) : (
         <FlatList
           keyExtractor={getKey}
           data={filteredNews}
-          renderItem={({ item }) =>
-            item.url && (
-              <NewsItem alertWithType={alertWithType} news={item} />
-            )}
+          renderItem={({ item }) => (
+            item.url && <NewsItem alertWithType={alertWithType} news={item} />
+          )}
         />
-      ) : (
-        <Spinner />
       )}
     </Container>
   );
@@ -47,6 +46,7 @@ News.propTypes = {
     }),
   ),
   navigation: PropTypes.object.isRequired,
+  isFetching: PropTypes.bool.isRequired,
 };
 
 News.defaultProps = {

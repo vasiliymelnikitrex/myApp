@@ -1,17 +1,17 @@
-import { getFishInfoAction, clearStateAction } from '../actionCreators';
+import { getFishDescriptionAction, clearStateAction } from '../actionCreators';
 import { STATES } from '../../constants';
 
 const initialState = { isFetching: false };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case getFishInfoAction().REQUEST:
+    case getFishDescriptionAction().REQUEST:
       return { ...state, isFetching: true, };
-    case getFishInfoAction().SUCCESS:
+    case getFishDescriptionAction().SUCCESS:
       return { ...state, ...action.payload[0], isFetching: false, };
-    case getFishInfoAction().FAIL:
+    case getFishDescriptionAction().FAIL:
       return { ...state, isFetching: false, };
-    case clearStateAction()[STATES.FISH_INFO]:
+    case clearStateAction()[STATES.FISH_DESCRIPTION]:
       return initialState;
     default:
       return state;

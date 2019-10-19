@@ -2,7 +2,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 import {
   getNewsListAction,
   getFishListAction,
-  getFishInfoAction,
+  getFishDescriptionAction,
 } from '../actionCreators';
 
 function* handleError({ errData }) {
@@ -15,5 +15,5 @@ function* handleError({ errData }) {
 export default [
   takeEvery(getNewsListAction().ERROR, handleError),
   takeEvery(getFishListAction().ERROR, handleError),
-  takeEvery(getFishInfoAction().ERROR, handleError),
+  takeEvery(getFishDescriptionAction().ERROR, handleError),
 ];
