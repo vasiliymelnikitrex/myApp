@@ -12,10 +12,8 @@ import IconFish from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { PushableWrapper } from '..';
 import { TABS, TABBAR_ICONS } from '../../constants';
-import {
-  getFishInfoSelector,
-} from '../../redux/selectors';
-import { getFishInfo } from '../../redux/actions';
+import { getFishInfoSelector } from '../../redux/selectors';
+import { getFishInfo, clearState } from '../../redux/actions';
 import { removeTags, removeBreaks } from '../../helpers';
 import mapArea from '../../assets/map_preview.png';
 import { ACTIVE_ICON_COLOR } from '../../styles/colors';
@@ -55,9 +53,14 @@ const FishDescription = ({ path, navigate, alertWithType }) => {
 
   useEffect(() => {
     dispatch(getFishInfo('REQUEST', { path, alertWithType }));
+    return () => dispatch(clearState('FISH_INFO'));
   }, []);
 
-  return fishInfo ? (
+  return fishInfo.isFetching ? (
+    <View>
+      <Text>Loading...</Text>
+    </View>
+  ) : (
     <ScrollView showsVerticalScrollIndicator={false}>
       <PushableWrapper
         onPress={onPress(TABS.MapInfo)}
@@ -89,10 +92,6 @@ const FishDescription = ({ path, navigate, alertWithType }) => {
         <Text>Food</Text>
       </TouchableOpacity>
     </ScrollView>
-  ) : (
-    <View>
-      <Text>Loading...</Text>
-    </View>
   );
 };
 
