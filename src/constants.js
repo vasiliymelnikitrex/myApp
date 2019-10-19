@@ -1,3 +1,7 @@
+export const STATES = {
+  FISH_INFO: 'FISH_INFO',
+};
+
 export const TABS = {
   Home: 'Home',
   Calendar: 'Calendar',

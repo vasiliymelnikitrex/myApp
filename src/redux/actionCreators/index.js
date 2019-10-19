@@ -1,3 +1,5 @@
+import { STATES } from '../../constants';
+
 export const getFishListAction = () => ({
   REQUEST: 'GET_FISH_LIST_REQUEST',
   SUCCESS: 'GET_FISH_LIST_SUCCES',
@@ -17,4 +19,8 @@ export const getNewsListAction = () => ({
   SUCCESS: 'GET_NEWS_LIST_SUCCES',
   ERROR: 'GET_NEWS_LIST_ERROR',
   FAIL: 'GET_NEWS_LIST_FAIL',
+});
+
+export const clearStateAction = () => ({
+  [STATES.FISH_INFO]: STATES.FISH_INFO,
 });

@@ -6,3 +6,4 @@ export { default as FishItem } from './FishItem';
 export { default as PushableWrapper } from './PushableWrapper';
 export { default as Search } from './Search';
 export { default as ScreenHeader } from './ScreenHeader';
+export { default as Spinner } from './Spinner';

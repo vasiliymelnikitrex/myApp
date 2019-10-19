@@ -1,6 +1,9 @@
-import { getFishInfoAction } from '../actionCreators';
+import { getFishInfoAction, clearStateAction } from '../actionCreators';
+import { STATES } from '../../constants';
 
-export default (state = { isFetching: false }, action) => {
+const initialState = { isFetching: false };
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case getFishInfoAction().REQUEST:
       return { ...state, isFetching: true, };
@@ -8,6 +11,8 @@ export default (state = { isFetching: false }, action) => {
       return { ...state, ...action.payload[0], isFetching: false, };
     case getFishInfoAction().FAIL:
       return { ...state, isFetching: false, };
+    case clearStateAction()[STATES.FISH_INFO]:
+      return initialState;
     default:
       return state;
   }

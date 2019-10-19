@@ -2,23 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FlatList } from 'react-native';
 
-import { Container, ScreenHeader, NewsItem } from '../components';
+import { Container, ScreenHeader, NewsItem, Spinner } from '../components';
+
+import { removeDuplicateData } from '../helpers';
 
 const News = ({ data, navigation, alertWithType }) => {
-  // const removeDuplicateData = news => news; // TODO
-  const getKey = ({ title }) => title;
+  const filteredNews = removeDuplicateData(data);
+
+  const getKey = ({ publishedAt }) => publishedAt;
 
   return (
     <Container>
       <ScreenHeader title={navigation.state.routeName} />
-      {Boolean(data.length > 10) && ( // TODO
+      {data.length ? (
         <FlatList
           keyExtractor={getKey}
-          data={data}
-          renderItem={({ item }) => (
-            item.url && <NewsItem alertWithType={alertWithType} news={item} />
-          )}
+          data={filteredNews}
+          renderItem={({ item }) =>
+            item.url && (
+              <NewsItem alertWithType={alertWithType} news={item} />
+            )}
         />
+      ) : (
+        <Spinner />
       )}
     </Container>
   );
@@ -27,7 +33,10 @@ const News = ({ data, navigation, alertWithType }) => {
 News.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      source: PropTypes.shape({}),
+      source: PropTypes.shape({
+        id: PropTypes.any,
+        name: PropTypes.string,
+      }),
       author: PropTypes.string,
       title: PropTypes.string,
       description: PropTypes.string,
