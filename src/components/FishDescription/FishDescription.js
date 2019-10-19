@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import IconFish from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import { PushableWrapper } from '..';
+import { PushableWrapper, Spinner } from '..';
 import { TABS, TABBAR_ICONS } from '../../constants';
 import { getFishInfoSelector } from '../../redux/selectors';
 import { getFishInfo, clearState } from '../../redux/actions';
@@ -57,9 +57,7 @@ const FishDescription = ({ path, navigate, alertWithType }) => {
   }, []);
 
   return fishInfo.isFetching ? (
-    <View>
-      <Text>Loading...</Text>
-    </View>
+    <Spinner />
   ) : (
     <ScrollView showsVerticalScrollIndicator={false}>
       <PushableWrapper

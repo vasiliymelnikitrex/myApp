@@ -1,4 +1,3 @@
-
 import { TAGS, BREAKS } from './regex';
 
 export const removeTags = val => val && val.replace(TAGS, '');
@@ -16,4 +15,15 @@ export const sortData = data =>
     return 0;
   });
 
-export const filterByKey = (val, key) => item => item[key].toLowerCase().includes(val.toLowerCase());
+export const filterByKey = (val, key) => item =>
+  item[key].toLowerCase().includes(val.toLowerCase());
+
+export const removeDuplicateData = news => {
+  const titles = news.map(item => item.title);
+  const filteredTitles = [...new Set(titles)];
+  const filteredNews = filteredTitles.map(title => (
+    news.find(item => title === item.title)
+  ));
+
+  return filteredNews;
+};
