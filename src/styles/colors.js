@@ -1,6 +1,21 @@
-export const PRIMARY_COLOR = '#fdecff';
-export const ACTIVE_ICON_COLOR = '#202040';
-export const GRADIENT_START_COLOR = '#574574';
-export const GRADIENT_FINISH_COLOR = '#454574';
-export const TABBAR_BG_COLOR = '#6058A5';
-export const ACTIVE_TINT_COLOR = '#230338';
+const COMMON_WHITE = 'rgba(253, 236, 255, 1)';
+
+const PURPLE_THEME = {
+  PRIMARY_COLOR: COMMON_WHITE,
+  ACTIVE_ICON_COLOR: 'rgba(32, 32, 64, 1)',
+  GRADIENT_START_COLOR: 'rgba(100, 69, 116, 1)',
+  GRADIENT_FINISH_COLOR: 'rgba(65, 69, 116, 1)',
+  TABBAR_BG_COLOR: 'rgba(96, 88, 165, 1)',
+  ACTIVE_TINT_COLOR: 'rgba(35, 3, 56, 1)',
+};
+
+// const BLUE_THEME = {
+//   PRIMARY_COLOR: COMMON_WHITE,
+//   ACTIVE_ICON_COLOR: 'rgba(0, 64, 77, 1)',
+//   GRADIENT_START_COLOR: 'rgba(41, 52, 98, 1)',
+//   GRADIENT_FINISH_COLOR: 'rgba(33, 101, 131, 1)',
+//   TABBAR_BG_COLOR: 'rgba(64, 120, 180, 1)',
+//   ACTIVE_TINT_COLOR: 'rgba(3, 35, 69, 1)',
+// };
+
+export const MAIN_THEME = PURPLE_THEME;

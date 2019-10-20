@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-
-import { PRIMARY_COLOR } from '../../styles/colors';
+import { MAIN_THEME } from '../../styles/colors';
 import { BORDER_RADIUS_COMMON } from '../../styles/borders';
 
 const styles = StyleSheet.create({
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
   },
   mainViewText: {
     justifyContent: 'flex-end',
-    color: PRIMARY_COLOR,
+    color: MAIN_THEME.PRIMARY_COLOR,
     fontWeight: 'bold',
   },
 });

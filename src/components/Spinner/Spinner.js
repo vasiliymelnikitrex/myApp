@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, ActivityIndicator } from 'react-native';
 
-import { PRIMARY_COLOR } from '../../styles/colors';
+import { MAIN_THEME } from '../../styles/colors';
 
 import styles from './styles';
 
 const Spinner = ({ size }) => (
   <View style={styles.container}>
-    <ActivityIndicator size={size} color={PRIMARY_COLOR} />
+    <ActivityIndicator size={size} color={MAIN_THEME.PRIMARY_COLOR} />
   </View>
 );
 

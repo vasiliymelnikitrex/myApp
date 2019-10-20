@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native';
 import { ITEM_MARGIN } from '../../styles/margins';
 import { SECONDARY_TEXT_PADDING } from '../../styles/paddings';
-import { PRIMARY_COLOR } from '../../styles/colors';
+import { MAIN_THEME } from '../../styles/colors';
 import { SUB_TEXT_FONT_SIZE } from '../../styles/fontSizes';
 import { BORDER_RADIUS_COMMON } from '../../styles/borders';
 
 const styles = StyleSheet.create({
   container: {
-    borderColor: PRIMARY_COLOR,
+    borderColor: MAIN_THEME.PRIMARY_COLOR,
     minHeight: 200,
     borderWidth: 2,
     borderRadius: BORDER_RADIUS_COMMON / 2,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, .5)',
   },
   text: {
-    color: PRIMARY_COLOR,
+    color: MAIN_THEME.PRIMARY_COLOR,
     fontSize: SUB_TEXT_FONT_SIZE,
   },
   headText: {

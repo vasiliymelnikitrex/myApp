@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { TextInput } from 'react-native';
 
-import { PRIMARY_COLOR } from '../../styles/colors';
+import { MAIN_THEME } from '../../styles/colors';
 import styles from './styles';
 
 const Search = ({ onChange }) => {
@@ -16,7 +16,7 @@ const Search = ({ onChange }) => {
   return (
     <TextInput
       style={styles.container}
-      placeholderTextColor={PRIMARY_COLOR}
+      placeholderTextColor={MAIN_THEME.PRIMARY_COLOR}
       fontWeight="bold"
       onChangeText={handleChange}
       value={value}
