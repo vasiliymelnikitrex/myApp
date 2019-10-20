@@ -50,7 +50,7 @@ const FishDescription = ({ navigate, isFetching }) => {
         sugars: fishDescription['Sugars, Total'],
         taste: removeBreaks(removeTags(fishDescription.Taste)),
       },
-    };
+    }; // TODO: Mapping from the server
     navigate(screen, stateProps[TABS[screen]]);
   };
 
