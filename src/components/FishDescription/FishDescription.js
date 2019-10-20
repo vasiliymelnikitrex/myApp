@@ -17,7 +17,7 @@ import { getFishDescriptionSelector } from '../../redux/selectors';
 import { clearState } from '../../redux/actions';
 import { removeTags, removeBreaks } from '../../helpers';
 import mapArea from '../../assets/map_preview.png';
-import { ACTIVE_ICON_COLOR } from '../../styles/colors';
+import { MAIN_THEME } from '../../styles/colors';
 import styles from './styles';
 
 const FishDescription = ({ navigate, isFetching }) => {
@@ -73,7 +73,7 @@ const FishDescription = ({ navigate, isFetching }) => {
             style={styles.mainViewIcon}
             name={TABBAR_ICONS[TABS.FishList]}
             size={20}
-            color={ACTIVE_ICON_COLOR}
+            color={MAIN_THEME.ACTIVE_ICON_COLOR}
           />
           <View style={styles.mainViewLabel}>
             <Text>Open map</Text>
