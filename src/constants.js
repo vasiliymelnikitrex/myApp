@@ -25,7 +25,7 @@ const API_BASE_URL = 'https://www.fishwatch.gov';
 
 export const MAX_STRING_LIMIT = 105;
 
-export const FISH_LIST_BASE_URL = 'https://api.myjson.com/bins/z53b0';
+export const FISH_LIST_BASE_URL = 'https://api.myjson.com/bins/cig58';
 export const FISH_IMG_BASE_URL = `${API_BASE_URL}/sites/default/files`;
 export const FISH_DESCRIPTION_URL = `${API_BASE_URL}/api/species`;
 export const NEWS_LIST_BASE_URL = 'https://newsapi.org/v2/everything';

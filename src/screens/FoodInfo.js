@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ScrollView, Text } from 'react-native';
 
 import { Container, ArrowBack } from '../components';
 
-export default ({ navigation }) => {
+export const FoodInfo = ({ navigation }) => {
   const goBack = () => navigation.goBack();
   const { params: foodProps, routeName } = navigation.state;
   return (
@@ -22,3 +23,9 @@ export default ({ navigation }) => {
     </Container>
   );
 };
+
+FoodInfo.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
+
+export default FoodInfo;
