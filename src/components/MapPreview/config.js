@@ -8,28 +8,28 @@ export const LOCATIONS = {
     top: 0,
   },
   Labrador: {
-    left: 30,
-    top: 30,
+    left: '87.5%',
+    top: '25%',
   },
   'Cape Cod Massachusetts Hatteras': {
-    left: 60,
-    top: 60,
+    left: '80%',
+    top: '57.5%',
   },
   'New Jersey': {
-    left: 90,
-    top: 90,
+    left: '79%',
+    top: '54%',
   },
   'North Carolina': {
-    left: 120,
-    top: 120,
+    left: '77.5%',
+    top: '59.5%',
   },
   'Kodiak Island Island': {
     left: 0,
     top: 0,
   },
   Alaska: {
-    left: 0,
-    top: 0,
+    left: '10%',
+    top: '14%',
   },
   'Baja California': {
     left: 0,
@@ -56,12 +56,12 @@ export const LOCATIONS = {
     top: 0,
   },
   'Greenland Iceland': {
-    left: 175,
-    top: 175,
+    left: '90%',
+    top: '21%',
   },
   'Gulf Maine': {
-    left: 200,
-    top: 95,
+    left: '84.5%',
+    top: '47%',
   },
   'Bering sea': {
     left: 0,
@@ -76,8 +76,8 @@ export const LOCATIONS = {
     top: 0,
   },
   Massachusetts: {
-    left: 0,
-    top: 0,
+    left: '84%',
+    top: '48%',
   },
   Cuba: {
     left: 0,
@@ -87,9 +87,9 @@ export const LOCATIONS = {
     left: 0,
     top: 0,
   },
-  'Caribbea sea': {
-    left: 0,
-    top: 0,
+  'Caribean sea': {
+    left: '87%',
+    top: '79%',
   },
   'Pacific Ocean': {
     left: 0,
@@ -108,28 +108,28 @@ export const LOCATIONS = {
     top: 0,
   },
   Maine: {
-    left: 0,
-    top: 0,
+    left: '84.5%',
+    top: '47%',
   },
   Texas: {
-    left: 0,
-    top: 0,
+    left: '57%',
+    top: '67.5%',
   },
   'Southern New England': {
-    left: 0,
-    top: 0,
+    left: '84%',
+    top: '47%',
   },
   'New Brunswick': {
-    left: 0,
-    top: 0,
+    left: '83.5%',
+    top: '45%',
   },
   Virginia: {
-    left: 0,
-    top: 0,
+    left: '79%',
+    top: '56.5%',
   },
   'Cape Cod Massachusetts': {
-    left: 0,
-    top: 0,
+    left: '80%',
+    top: '57.5%',
   },
   Hatteras: {
     left: 0,
@@ -156,12 +156,12 @@ export const LOCATIONS = {
     top: 0,
   },
   'Nova Scotia': {
-    left: 0,
-    top: 0,
+    left: '89%',
+    top: '43%',
   },
   Norway: {
-    left: 0,
-    top: 0,
+    left: '95%',
+    top: '2%',
   },
   Quebec: {
     left: 0,
@@ -252,10 +252,6 @@ export const LOCATIONS = {
     top: 0,
   },
   'Martha’s Vineyard': {
-    left: 0,
-    top: 0,
-  },
-  'Caribean sea': {
     left: 0,
     top: 0,
   },
